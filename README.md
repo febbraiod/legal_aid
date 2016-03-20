@@ -1,2 +1,2 @@
 # legal-aid
-A CMS for law firms using Rails
+A CMS for law firms built with Ruby on Rails
