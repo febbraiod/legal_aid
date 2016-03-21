@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :users
+  resources :clients
   get '/' => 'static#home'
   get '/about' => 'static#about'
   # The priority is based upon order of creation: first created -> highest priority.
