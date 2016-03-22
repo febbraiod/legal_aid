@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :cases
   resources :users
   resources :clients
   get '/' => 'static#home'
