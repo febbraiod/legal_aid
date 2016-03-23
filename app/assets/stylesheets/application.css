@@ -681,3 +681,7 @@ a img.aligncenter {
 #content {
      margin: 75px 0px 0px 0px;
 }
+
+.error {
+  color: red;
+}

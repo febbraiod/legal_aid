@@ -16,8 +16,12 @@ class CasesController < ApplicationController
 
   def create
     @case = Case.new(case_params)
-    @case.save
-    redirect_to case_path(@case)
+    if @case.save
+      redirect_to case_path(@case)
+    else
+      flash[:message] = "Cases must be associated with a client"
+      redirect_to new_case_path
+    end
   end
 
   def show

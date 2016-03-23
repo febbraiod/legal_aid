@@ -1,4 +1,10 @@
 <br>
+<% if flash[:message] %>
+  <div class = "error">
+  <h4>Error: <%= flash[:message] %>!</h4>
+  </div>
+  <br>
+<% end %>
 
 <h1>New cases smell like money</h1>
 
