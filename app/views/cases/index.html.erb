@@ -1,0 +1,10 @@
+<br>
+
+<h1>Case List:</h1>
+
+<% @cases.each do |c| %>
+  <br>
+  <p><%= link_to c.caption, case_path(c) %></p>
+<% end %>
+
+  
