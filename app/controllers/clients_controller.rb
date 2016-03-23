@@ -1,5 +1,9 @@
 class ClientsController < ApplicationController
 
+  def index
+    @clients = Client.all
+  end
+
   def new
     @client = Client.new
     @attributes = @client.form_attributes
