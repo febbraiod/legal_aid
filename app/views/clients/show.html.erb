@@ -1,0 +1,12 @@
+<br>
+
+<h1>Client Info:</h1>
+
+  <% @attributes.each do |a| %>
+    <% if !@client.send(a.to_s).blank? %>
+    <p><%=a.to_s.split("_").join(" ").titleize%>: <%=@client.send(a.to_s)%></p>
+    <%end%>
+  <%end%>
+
+  <!-- need a drop down to navigate to clients cases and an edit client button -->
+  

@@ -1,0 +1,16 @@
+<br>
+
+<h1>New clients smell like money</h1>
+
+<!-- This needs to be made a partial for edit as well -->
+<%= form_for @client do |f| %>
+
+  <% @attributes.each do |a| %>
+    <%= f.label a %><br>
+    <%= f.text_field a %><br>
+    <br>
+  <% end %>
+
+  <%= f.submit %>
+
+<% end %>
