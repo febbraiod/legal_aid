@@ -21,9 +21,14 @@ class ClientsController < ApplicationController
   end
 
   def edit
+    @client = Client.find_by(id: params[:id])
+    @attributes = @client.form_attributes
   end
 
   def update
+    @client = Client.find_by(id: params[:id])
+    @client.update(client_params)
+    redirect_to client_path(@client)
   end
 
   def destory

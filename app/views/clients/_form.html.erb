@@ -1,0 +1,11 @@
+<%= form_for @client do |f| %>
+
+  <% @attributes.each do |a| %>
+    <%= f.label a %><br>
+    <%= f.text_field a %><br>
+    <br>
+  <% end %>
+
+  <%= f.submit %>
+
+<% end %>
