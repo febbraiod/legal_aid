@@ -3,6 +3,8 @@ class Case < ActiveRecord::Base
   
   belongs_to :client
   validates :client, presence: true
+  has_many :notes
+  has_many :note_authors, through: :notes, source: :user
 
 
   def self.popular_county

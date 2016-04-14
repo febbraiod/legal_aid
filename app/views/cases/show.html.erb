@@ -2,11 +2,25 @@
 
 <h1>Case Info:</h1>
 
+<br>
+
   <% @attributes.each do |a| %>
     <% unless @case.send(a.to_s).blank? %>
     <p><%=a.to_s.split("_").join(" ").titleize%>: <%=@case.send(a.to_s)%></p>
     <%end%>
   <%end%>
+
+<br>
+
+  <div class = "case_notes">
+    <h4>Case Notes:</h4>
+    <br>
+    <% @case.notes.each do |note| %>
+      <p><%=note.content %></p>
+      <p>- <%=note.user.full_name %><br> <%= note.created_at %></p>
+      <br>
+    <% end %>
+  </div>
 
   <!-- need a drop down to navigate to clients cases and an edit client button -->
   
