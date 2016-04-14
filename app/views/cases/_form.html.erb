@@ -1,9 +1,14 @@
 <%= form_for @case do |f| %>
 
   <% @attributes.each do |a| %>
+    <% if a == :open %>
+      <%= f.label a %><br>
+      <%= f.check_box a %><br>
+    <% else %>
     <%= f.label a %><br>
     <%= f.text_field a %><br>
     <br>
+    <% end %>
   <% end %>
 
   <%= f.submit %>

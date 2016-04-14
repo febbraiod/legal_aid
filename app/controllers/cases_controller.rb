@@ -1,5 +1,7 @@
 class CasesController < ApplicationController
 
+  #need to find a way to get a route for open case v. all cases.
+
   def index
     if params[:client_id]
       @client = Client.find_by(id: params[:client_id])
@@ -11,7 +13,7 @@ class CasesController < ApplicationController
 
   def new
     @case = Case.new
-    @attributes = @case.form_attributes.sort
+    @attributes = @case.form_attributes
   end
 
   def create
@@ -24,6 +26,17 @@ class CasesController < ApplicationController
     end
   end
 
+  def edit
+    @case = Case.find_by(params[:id])
+    @attributes = @case.form_attributes
+  end
+
+  def update
+    @case = Case.find_by(params[:id])
+    @case.update(case_params)
+    redirect_to case_path(@case)
+  end
+
   def show
     @case = Case.find_by(id: params[:id])
     @attributes = @case.form_attributes.sort
@@ -32,7 +45,7 @@ class CasesController < ApplicationController
   private
 
   def case_params
-    params.require(:case).permit(:caption, :client_id, :county, :index_num, :open)
+    params.require(:case).permit(:caption, :client_id, :county, :index_num, :open, :exposure)
   end
 
 end

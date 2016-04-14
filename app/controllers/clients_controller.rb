@@ -34,6 +34,7 @@ class ClientsController < ApplicationController
   def destory
   end
 
+
     private
 
     def client_params

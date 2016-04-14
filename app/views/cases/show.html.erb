@@ -3,7 +3,7 @@
 <h1>Case Info:</h1>
 
   <% @attributes.each do |a| %>
-    <% if !@case.send(a.to_s).blank? %>
+    <% unless @case.send(a.to_s).blank? %>
     <p><%=a.to_s.split("_").join(" ").titleize%>: <%=@case.send(a.to_s)%></p>
     <%end%>
   <%end%>

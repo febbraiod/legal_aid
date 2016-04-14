@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322004518) do
+ActiveRecord::Schema.define(version: 20160324171237) do
 
   create_table "cases", force: :cascade do |t|
     t.integer  "client_id"
     t.string   "index_num"
     t.string   "county"
     t.text     "caption"
-    t.boolean  "open"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "open",       default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "exposure"
   end
 
   create_table "clients", force: :cascade do |t|

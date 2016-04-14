@@ -5,9 +5,9 @@ module FormHelper
     self.attributes.each do |a|
       attributes << a[0].to_sym
     end
-    attributes.pop(2)
-    attributes.shift
-    attributes
+    delete = [:created_at, :updated_at, :id]
+    a = attributes.each.reject {|i| delete.each.include?(i)}
+    a.sort
   end
 
 end

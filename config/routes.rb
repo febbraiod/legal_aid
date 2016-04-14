@@ -2,11 +2,13 @@ Rails.application.routes.draw do
 
   root 'static#home'
   get '/about' => 'static#about'
-
+  get '/stats' => 'static#stats'
+  
   resources :users
   resources :clients do
     resources :cases
   end
+
   resources :cases
 
   # The priority is based upon order of creation: first created -> highest priority.
