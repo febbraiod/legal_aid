@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   get '/stats' => 'static#stats'
   
   resources :users
+
   resources :clients do
     resources :cases
   end
 
   resources :cases
+  resources :notes
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

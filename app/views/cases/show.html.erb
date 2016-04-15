@@ -22,5 +22,15 @@
     <% end %>
   </div>
 
-  <!-- need a drop down to navigate to clients cases and an edit client button -->
+  <!-- need a drop down to navigate to clients cases and an edit client button maybe in a new column...the new note form should be the last thing on the left column-->
+
+<%=form_for @newnote do |f|%>
+
+  <%=f.label :content%>
+  <%=f.text_area :content%><br>
+  <%= f.hidden_field :user_id %><br>
+  <%= f.hidden_field :case_id %>
+  <%=f.submit%>
+
+<%end%>
   

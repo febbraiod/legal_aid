@@ -40,6 +40,10 @@ class CasesController < ApplicationController
   def show
     @case = Case.find_by(id: params[:id])
     @attributes = @case.form_attributes.sort
+
+    @newnote = Note.new()
+    @newnote.user = current_user
+    @newnote.case = @case
   end
 
   private
