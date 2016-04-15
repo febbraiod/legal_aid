@@ -7,13 +7,16 @@
   <% @attributes.each do |a| %>
     <% unless @case.send(a.to_s).blank? %>
       <%if a.to_s == "client_id"%>
-        <p>Client: <%=Client.find(@case.send(a.to_s)).full_name%>
+        <p>Client: <%=link_to (Client.find(@case.send(a.to_s)).full_name), client_cases_path(@case.client)%>
       <%else%>
         <p><%=a.to_s.split("_").join(" ").titleize%>: <%=@case.send(a.to_s)%></p>
       <%end%>
     <%end%>
   <%end%>
   <!-- maybe too much logic in view?  how can i fix this?-->
+  <br>
+  <p><%=link_to "Edit Case Info", edit_case_path%><p>
+
 <br>
 
   <div class = "case_notes">
@@ -26,7 +29,7 @@
     <% end %>
   </div>
 
-  <!-- need a drop down to navigate to clients cases and an edit client button maybe in a new column...the new note form should be the last thing on the left column-->
+  <!--the new note form should be the last thing on the note column-->
 
 <%=form_for @newnote do |f|%>
 

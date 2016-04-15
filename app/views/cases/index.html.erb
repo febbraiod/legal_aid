@@ -1,10 +1,18 @@
 <br>
 
 <h1>Case List:</h1>
+<br>
 
-<% @cases.each do |c| %>
-  <br>
-  <p><%= link_to c.caption, case_path(c) %></p>
-<% end %>
+<ul>
+  <% @cases.each do |c| %>
+  <li>
+    <%= link_to c.caption, case_path(c) %>
+  </li>
+  <% end %>
+</ul>
+
+<!-- new column -->
+<br>
+<%=link_to "Add new case", new_case_path%>
 
   

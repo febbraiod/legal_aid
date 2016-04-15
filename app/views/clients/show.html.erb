@@ -1,12 +1,21 @@
 <br>
 
 <h1>Client Info:</h1>
-
+  <p><%= "Name: " + @client.full_name %><p>
   <% @attributes.each do |a| %>
     <% if !@client.send(a.to_s).blank? %>
-    <p><%= a.to_s.split("_").join(" ").titleize %>: <%= @client.send(a.to_s) %></p>
-    <%end%>
-  <%end%>
+    <p><%= a.to_s.split("_").join(" ").titleize + ": " + @client.send(a.to_s) unless a.to_s == 'first_name' || a.to_s == 'last_name' %></p>
+
+    <% end %>
+  <% end %>
+  <br>
+  <br>
+  <%=link_to "Edit Client Info", edit_client_path%>
 
   <!-- need a drop down to navigate to clients cases and an edit client button -->
+  <!-- new column -->
+  <br>
+  <br>
+  <br>
+  <br>
   <p>DROPDOWN MENU FOR CLIENTS CASES GOES HERE</p>
