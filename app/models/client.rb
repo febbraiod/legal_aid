@@ -22,4 +22,8 @@ class Client < ActiveRecord::Base
     joins(:cases).group(:client_id).sum(:exposure).max_by{|k,v| v}
   end
 
+  def full_name
+    self.first_name + " " + self.last_name
+  end
+
 end

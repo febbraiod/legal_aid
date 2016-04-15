@@ -6,10 +6,14 @@
 
   <% @attributes.each do |a| %>
     <% unless @case.send(a.to_s).blank? %>
-    <p><%=a.to_s.split("_").join(" ").titleize%>: <%=@case.send(a.to_s)%></p>
+      <%if a.to_s == "client_id"%>
+        <p>Client: <%=Client.find(@case.send(a.to_s)).full_name%>
+      <%else%>
+        <p><%=a.to_s.split("_").join(" ").titleize%>: <%=@case.send(a.to_s)%></p>
+      <%end%>
     <%end%>
   <%end%>
-
+  <!-- maybe too much logic in view?  how can i fix this?-->
 <br>
 
   <div class = "case_notes">

@@ -8,7 +8,9 @@ Setup Pundit
 Validations?
 Validation errors displayed on view(see requirements)
 Deal with nested routes for users and cases
-Setup models and routes for notes
+On case page list assigned users(lawyers and paras)
+Think about css?
+
 
 modify/create forms for creating cases needs to assign attorney and have the abilty to create a new attorney if the one you want assigned doesnt already exhist(this is where you should use a join model! and nested form)
 

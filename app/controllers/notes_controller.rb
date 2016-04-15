@@ -2,8 +2,12 @@ class NotesController < ApplicationController
 
   def create
     note = Note.new(note_params)
-    note.save
-    redirect_to case_path(note.case)
+    if note.save
+      redirect_to case_path(note.case)
+    else
+      flash[:alert] = "Invalid Note"
+      redirect_to case_path(note.case)
+    end
   end
 
   private

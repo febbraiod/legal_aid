@@ -1,5 +1,6 @@
 class CasesController < ApplicationController
-
+  before_action :authenticate_user!
+  
   #need to find a way to get a route for open case v. all cases.
 
   def index
