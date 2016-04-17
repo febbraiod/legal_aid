@@ -1,15 +1,20 @@
 <br>
 
-<h1>Client List:</h1>
+<div class='col-1'>
+  <h1>Client List:</h1>
 
-<% @clients.each do |client| %>
-  <br>
-  <p><%= link_to client.fullname, client_path(client) %></p>
-  <p><%= client.phones %></p>
-  <p><%= client.email %></p>
-<% end %>
+  <% @clients.each do |client| %>
+    <br>
+    <p><%= link_to client.fullname, client_path(client) %></p>
+    <p><%= client.phones %></p>
+    <p><%= client.email %></p>
+  <% end %>
+</div>
 
-<!-- second column -->
-<br>
-<%=link_to "Add New Client", new_client_path %>
-  
+<div class='col-2'>
+  <p><%=link_to "Add New Client", new_client_path %></p>
+</div>
+
+<div class='col-3'>
+  <p><%=link_to "Add New Client", new_client_path %></p>
+</div>

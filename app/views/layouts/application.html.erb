@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <div id="wrapper">
+<div id="wrapper">
   <% if current_user %>
     <nav id="nav">
       <ul id="menu-main-navigation" class="">
@@ -21,7 +21,7 @@
         <li id="menu-item-104"><%= link_to "Clients", clients_path, class: "style-3 menu-item menu-item-type-custom menu-item-object-custom menu-item-104"%>
         </li>
         <li id="menu-item-105">
-        <a href="http://www.yrityssaneerausmenettely.fi" class="style-4 menu-item menu-item-type-custom menu-item-object-custom menu-item-105">Stats</a>
+          <%= link_to "Stats", stats_path, class: "style-4 menu-item menu-item-type-custom menu-item-object-custom menu-item-105"%>
         </li>
         <li id="menu-item-107"><%=link_to "sign out", destroy_user_session_path, class: "style-6 menu-item menu-item-type-custom menu-item-object-custom menu-item-107" %></li>
       </ul>   
@@ -45,16 +45,13 @@
     </nav>
   <%end%>
 
-    <% if notice || alert %>
-      <p class="error"><%= notice %></p>
-      <p class="error"><%= alert %></p>
-    <%end%>
+  <% if notice || alert %>
+    <p class="error"><%= notice %></p>
+    <p class="error"><%= alert %></p>
+  <%end%>
 
-      <%= yield %>
+  <%= yield %>
 
-
-    <section class="section page-content-section" id="block-2" data-color="#add-nav: dark, #small-logo: dark, #language: dark, #contact-box: dark">
-    </section>
 </div>
 
 

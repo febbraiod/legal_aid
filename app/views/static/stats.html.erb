@@ -1,15 +1,16 @@
 <br>
+<div class='col-1'>
 
-<h2>Firm Statistics</h2><br>
+  <h2>Firm Statistics</h2><br>
 
-<h5>Your most valuable client is:</h5><br>
+  <h5>Your most valuable client is:</h5><br>
 
-<p><%= @most_val.fullname %><p>
+  <p><%= @most_val.fullname %></p>
 
-<p>with an exposure of:</p>
+  <p>with an exposure of: <%= @sum_exposure %> dollars</p><br>
 
-<p><%= @sum_exposure %> dollars</p><br>
+  <h5>The majority the firm's cases are venued in:</h5><br>
 
-<h5>The majority the firm's cases are venued in:</h5><br>
+  <p><%=@pop_county%> County with <%=@cases_in_pop_county%> cases.</p>
 
-<p><%=@pop_county%> County with <%=@cases_in_pop_county%> cases.</p>
+</div>

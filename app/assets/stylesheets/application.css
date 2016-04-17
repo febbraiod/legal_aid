@@ -34,11 +34,10 @@ body{
   background:#f0eee2;
   -webkit-text-size-adjust:100%;
   -ms-text-size-adjust:none;
-  min-width:320px;
 }
 a{
   text-decoration:none;
-  color:#414042;
+  color: blue;
 }
 a:hover{text-decoration:underline;}
 a:active{background-color:transparent;}
@@ -46,7 +45,6 @@ input, textarea, select{
   font:100% "museo_slab300", Arial, Helvetica, sans-serif;
   vertical-align:middle;
   color:#414042;
-  overflow:auto;
 }
 label{vertical-align:middle;}
 button, input{
@@ -85,26 +83,8 @@ h6{
   line-height:22px;
   margin:0 0 10px;
 }
-i, cite, em, var, dfn, address{font-style:italic;}
-u, ins{text-decoration:underline;}
-s, strike, del{text-decoration:line-through;}
-blockquote, blockquote:before, blockquote:after, q, q:before, q:after{quotes:none;}
-blockquote:before, blockquote:after, q:before, q:after{content:'';}
-table, caption, tbody, tfoot, thead, tr, th, td{
-  border-collapse:collapse;
-  border-spacing:0;
-}
-th, td{
-  border:1px solid #ccc;
-  padding:3px 7px;
-  text-align:left;
-  vertical-align:top;
-}
-th{
-  border-color:#999;
-  text-align:center;
-  vertical-align:middle;
-}
+
+
 ul{margin-left:1px;}
 ul li, ol li{list-style-position:inside;}
 ul li{list-style-type:disc;}
@@ -156,7 +136,7 @@ textarea:-ms-input-placeholder{color:#414042;}
 #wrapper{
   padding:33px 0 0;
   width:100%;
-  overflow:hidden;
+  height: 100%;
   position:relative;
 }
 .contact-block .row:after{
@@ -234,10 +214,8 @@ textarea:-ms-input-placeholder{color:#414042;}
 }
 .bg {
   overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
   z-index: -1;
+  position: fixed;
   height: 100%;
   width: 100%;
 }
@@ -245,12 +223,7 @@ textarea:-ms-input-placeholder{color:#414042;}
   width: 100%;
   height: auto;
 }
-.page-visual-section {
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: cover;
-  background-attachment: fixed;
-}
+
 .section-1{
   z-index:2;
 }
@@ -278,37 +251,8 @@ textarea:-ms-input-placeholder{color:#414042;}
   vertical-align:middle;
   padding:99px 0 78px;
 }
-.logo{
-  background:url(images/logo.png) no-repeat;
-  text-indent:-9999px;
-  overflow:hidden;
-  display:block;
-  width:906px;
-  height:268px;
-  margin:0 auto 22px;
-}
-.small-logo{
-  background:url(images/logo-small.png) no-repeat;
-  text-indent:-9999px;
-  overflow:hidden;
-  position:fixed;
-  left:50%;
-  top:67px;
-  width:241px;
-  height:46px;
-  margin:0 0 0 -121px;
-  z-index:1;
-}
 
-.small-logo.page-96{ /* page: In English */
-  display: none;
-}
 
-.small-logo a{
-  display:block;
-  height:100%;
-}
-.small-logo.light{background-position:0 -52px;}
 .info-box{
   text-transform:uppercase;
   text-align:center;
@@ -399,7 +343,6 @@ textarea{
   clear:both;
 }
 textarea{
-  overflow:auto;
   width:100% !important;
   max-width:100%;
   height:103px;
@@ -416,7 +359,6 @@ textarea{
   padding:0;
   cursor:pointer;
   float:left;
-  overflow:hidden;
 }
 .controls{
   position:fixed;
@@ -431,7 +373,6 @@ textarea{
   width:32px;
   height:48px;
   text-indent:-9999px;
-  overflow:hidden;
   display:block;
   background:url(images/sprite.png) no-repeat;
 }
@@ -441,6 +382,7 @@ textarea{
 }
 .controls.prev .btn-prev{display:block;}
 .controls.prev .btn-next{display:none;}
+
 @media only screen and (min-width: 768px){
   #nav ul.js-slide-hidden{
     position:static !important;
@@ -665,22 +607,51 @@ a img.aligncenter {
     padding: 0 4px 5px;
 }
 
-.sticky,
-.bypostauthor{
-  display:block;
-}
-
 /* main elements */
 .add-nav li li{padding:0 0 0 5px;}
 .map-holder {
     margin: 100px -25px 124px;
-    overflow: hidden;
-}
-
-#content {
-     margin: 75px 0px 0px 0px;
 }
 
 .error {
   color: red;
 }
+
+#sign_in{
+  position: fixed;
+  left: 100px;
+  top: 100px;
+  width: 300px;
+}
+
+.forms {
+  position: relative;
+  left: 115px;
+  top: 40px;
+  width: 500px;
+  height: 100%;
+}
+
+.col-1 {
+  float: left;
+  position: relative;
+  left: 5%;
+  width: 30%;
+  height: 100%;
+}
+
+.col-2 {
+  position: absolute;
+  left: 25%;
+  height: 100%;
+  width: 30%;
+}
+
+.col-3 {
+  position: relative;
+  bottom: 400px;
+  left: 50%;
+  height: 100%;
+  width: 30%;
+}
+

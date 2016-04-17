@@ -3,19 +3,19 @@ A web app for law firms built with Ruby on Rails
 
 Plan of attack:
 
-Setup Devise
-Setup Pundit
 Validations?
 Validation errors displayed on view(see requirements)
 Deal with nested routes for users and cases
 On case page list assigned users(lawyers and paras)
-Think about css?
+Setup Pundit
+Think about css?(edit responsive css as well)
+use 'open' attribute to sort case list
+add search for cases(index and caption) and clients
 
 
-modify/create forms for creating cases needs to assign attorney and have the abilty to create a new attorney if the one you want assigned doesnt already exhist(this is where you should use a join model! and nested form)
+modify/create forms for creating cases needs to assign attorney and have the abilty to create a new attorney if the one you want assigned doesnt already exist(this is where you should use a join model! and nested form)
 
 also need a form to assign a user to a case(only admin)
-make forms for notes
 
 the join models here arent great for the nest form...think maybe...courthouse_id | case_id
 

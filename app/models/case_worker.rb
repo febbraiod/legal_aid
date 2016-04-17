@@ -1,6 +1,6 @@
 class CaseWorker < ActiveRecord::Base
 
-  belongs_to :user, as: :worker
+  belongs_to :worker, class_name: :user
   belongs_to :case
   
 end

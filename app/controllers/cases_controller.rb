@@ -18,6 +18,8 @@ class CasesController < ApplicationController
   end
 
   def create
+    binding.pry
+
     @case = Case.new(case_params)
     if @case.save
       redirect_to case_path(@case)
@@ -42,6 +44,7 @@ class CasesController < ApplicationController
     @case = Case.find_by(id: params[:id])
     @attributes = @case.form_attributes.sort
 
+    @case_notes = @case.notes.reverse
     @newnote = Note.new()
     @newnote.user = current_user
     @newnote.case = @case
@@ -50,7 +53,8 @@ class CasesController < ApplicationController
   private
 
   def case_params
-    params.require(:case).permit(:caption, :client_id, :county, :index_num, :open, :exposure)
+    params.require(:case).permit(:caption, :client_id, :county, :index_num, :open, :exposure,:client => [:first_name, :last_name, :company_name, :home_phone, :work_phone, 
+                                     :cell_phone, :email, :address, :city, :state, :zip], :case_workers => [])
   end
 
 end

@@ -1,43 +1,49 @@
 <br>
 
-<h1>Case Info:</h1>
-
-<br>
-
-  <% @attributes.each do |a| %>
-    <% unless @case.send(a.to_s).blank? %>
-      <%if a.to_s == "client_id"%>
-        <p>Client: <%=link_to (Client.find(@case.send(a.to_s)).full_name), client_cases_path(@case.client)%>
-      <%else%>
-        <p><%=a.to_s.split("_").join(" ").titleize%>: <%=@case.send(a.to_s)%></p>
+<div class='col-1'>
+  <h1>Case Info:</h1>
+  <br>
+    <% @attributes.each do |a| %>
+      <% unless @case.send(a.to_s).blank? %>
+        <%if a.to_s == "client_id"%>
+          <p>Client: <%=link_to (Client.find(@case.send(a.to_s)).full_name), client_cases_path(@case.client)%></p>
+        <%else%>
+          <p><%=a.to_s.split("_").join(" ").titleize%>: <%=@case.send(a.to_s)%></p>
+        <%end%>
       <%end%>
     <%end%>
-  <%end%>
-  <!-- maybe too much logic in view?  how can i fix this?-->
-  <br>
-  <p><%=link_to "Edit Case Info", edit_case_path%><p>
+    <!-- maybe too much logic in view?  how can i fix this?-->
+    <br>
+    <p><%=link_to "Edit Case Info", edit_case_path%></p>
 
-<br>
+</div>
+
+<div class='col-2'>
 
   <div class = "case_notes">
     <h4>Case Notes:</h4>
     <br>
-    <% @case.notes.each do |note| %>
+    <% @case_notes.each do |note| %>
       <p><%=note.content %></p>
       <p>- <%=note.user.full_name %><br> <%= note.created_at %></p>
       <br>
     <% end %>
   </div>
 
+</div>
+
   <!--the new note form should be the last thing on the note column-->
+<div class='col-3'>
+  <h5>Add Note:</h5>
+  <%=form_for @newnote do |f|%>
 
-<%=form_for @newnote do |f|%>
+    <%=f.label :content%>
+    <%=f.text_area :content%><br>
+    <%= f.hidden_field :user_id %><br>
+    <%= f.hidden_field :case_id %>
+    <%=f.submit%>
 
-  <%=f.label :content%>
-  <%=f.text_area :content%><br>
-  <%= f.hidden_field :user_id %><br>
-  <%= f.hidden_field :case_id %>
-  <%=f.submit%>
+  <%end%>
 
-<%end%>
+</div>
   
