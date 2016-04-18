@@ -23,7 +23,7 @@
         <li id="menu-item-105">
           <%= link_to "Stats", stats_path, class: "style-4 menu-item menu-item-type-custom menu-item-object-custom menu-item-105"%>
         </li>
-        <li id="menu-item-107"><%=link_to "sign out", destroy_user_session_path, class: "style-6 menu-item menu-item-type-custom menu-item-object-custom menu-item-107" %></li>
+        <li id="menu-item-107"><%=link_to "sign out", destroy_user_session_path, method: :delete, class: "style-6 menu-item menu-item-type-custom menu-item-object-custom menu-item-107" %></li>
       </ul>   
     </nav>
   <%else%>

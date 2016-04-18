@@ -1,0 +1,11 @@
+<h1>Unapproved Users</h1>
+
+<table>
+  <%@users.each do |u|%>
+    <tr>
+        <td><%= u.email%></td>
+        <td><%= u.approved%></td>
+        <td><%= link_to "Edit", edit_user_path(u)%></td>
+    </tr>
+  <%end%>
+</table>

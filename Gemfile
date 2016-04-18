@@ -28,6 +28,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 #for authenication
 gem 'devise'
+# for authorization
+gem "pundit"
 
 # Use Unicorn as the app server
 # gem 'unicorn'

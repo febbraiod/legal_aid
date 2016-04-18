@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
+  
   devise_for :users
+
   root 'static#home'
   get '/about' => 'static#about'
   get '/stats' => 'static#stats'
   
+  get '/users/unapproved' => 'users#unapproved'
   resources :users
 
   resources :clients do
