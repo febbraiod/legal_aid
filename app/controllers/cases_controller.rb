@@ -1,7 +1,7 @@
 class CasesController < ApplicationController
   before_action :authenticate_user!
   
-  #need to find a way to get a route for open case v. all cases.
+  #need to have a route for open cases v. all cases v. closed cases.
 
   def index
     if params[:client_id]
@@ -14,17 +14,25 @@ class CasesController < ApplicationController
 
   def new
     @case = Case.new
+    @case.build_client
     @attributes = @case.form_attributes
   end
 
   def create
-    binding.pry
+    if case_params[:client_id].empty?
+      binding.pry
+      @case = Case.new(case_params)
+    else
+      binding.pry
+      @case = Case.new(case_params) 
+      @case.client = Client.find_by(case_params[:client_id])
+    end
 
-    @case = Case.new(case_params)
     if @case.save
+      flash[:message] = "Case successfully created"
       redirect_to case_path(@case)
     else
-      flash[:message] = "Cases must be associated with a client"
+      flash[:message] = "Error: Cases must be associated with a client"
       redirect_to new_case_path
     end
   end
@@ -36,8 +44,13 @@ class CasesController < ApplicationController
 
   def update
     @case = Case.find_by(params[:id])
-    @case.update(case_params)
-    redirect_to case_path(@case)
+    if @case.update(case_params)
+      flash[:message] = "Case successfully updated"
+      redirect_to case_path(@case)
+    else
+      flash[:message] = "Error, please try again."
+      redirect_to case_path(@case)
+    end
   end
 
   def show
@@ -53,8 +66,9 @@ class CasesController < ApplicationController
   private
 
   def case_params
-    params.require(:case).permit(:caption, :client_id, :county, :index_num, :open, :exposure,:client => [:first_name, :last_name, :company_name, :home_phone, :work_phone, 
-                                     :cell_phone, :email, :address, :city, :state, :zip], :case_workers => [])
+    params.require(:case).permit(:caption, :client_id, :county, :index_num, :open, :exposure, 
+                                  :client_attributes => [:first_name, :last_name, :company_name, :home_phone, :work_phone, 
+                                  :cell_phone, :email, :address, :city, :state, :zip], :case_workers => [])
   end
 
 end

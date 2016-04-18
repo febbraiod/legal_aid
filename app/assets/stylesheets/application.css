@@ -655,3 +655,32 @@ a img.aligncenter {
   width: 30%;
 }
 
+.form_col-1 {
+  float: left;
+  position: relative;
+  left: 5%;
+  width: 30%;
+  height: 100%;
+}
+
+.form_col-2 {
+  position: absolute;
+  left: 37%;
+  top: 11%;
+  height: 100%;
+  width: 30%;
+}
+
+.form_col-3 {
+  position: relative;
+  bottom: 450px;
+  left: 70%;
+  height: 100%;
+  width: 30%;
+}
+
+#new_case_header{
+  position: relative;
+  left: 5%;
+}
+

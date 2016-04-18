@@ -2,6 +2,7 @@ class Client < ActiveRecord::Base
   include FormHelper
 
   has_many :cases
+  validates :last_name, :first_name, presence: true
 
   def fullname
     name = ("#{self.first_name} #{self.last_name}").strip

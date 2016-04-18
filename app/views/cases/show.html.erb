@@ -1,4 +1,10 @@
 <br>
+<% if flash[:message] %>
+  <div class = "error">
+  <h4><%= flash[:message] %>!</h4>
+  </div>
+  <br>
+<% end %>
 
 <div class='col-1'>
   <h1>Case Info:</h1>

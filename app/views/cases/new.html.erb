@@ -1,16 +1,14 @@
 <br>
 <% if flash[:message] %>
   <div class = "error">
-  <h4>Error: <%= flash[:message] %>!</h4>
+  <h4><%= flash[:message] %>!</h4>
   </div>
   <br>
 <% end %>
 
-<div class='forms'>
-<h1>New cases smell like money</h1>
+
+<h1 id = 'new_case_header'>New cases smell like money</h1>
 
 <%= render 'form' %>
 
 <!-- this form needs a client drop down. With the possibilty of add a new client if it doesn't already exhist (this is the nest) -->
-
-</div>
