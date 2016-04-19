@@ -11,6 +11,39 @@ class NotesController < ApplicationController
     end
   end
 
+  def edit
+    @note = Note.find_by(id: params[:id])
+  end
+
+  def update
+    @note = Note.find_by(id: params[:id])
+    if @note.user == current_user  || current_user.admin
+      #tried using pundit here via authorize @note but kept getting error i couldnt debug.
+      @note.update(note_params)
+      flash[:message] = "You note has been updated"
+      redirect_to case_path(@note.case)
+    else
+      flash[:message] = "Non admin: You may only edit your own notes."
+      redirect_to case_path(@note.case)
+    end
+  end
+
+  def destroy
+    @note = Note.find_by(id: params[:id])
+    @case = @note.case
+    if @note.user == current_user || current_user.admin
+       #tried using pundit here via authorize @note but kept getting error i couldnt debug.
+      @note.delete
+      flash[:message] = "You note has been deleted"
+      redirect_to case_path(@case)
+    else
+      flash[:message] = "Non admin: You may only delete your own notes."
+      redirect_to case_path(@note.case)
+    end
+
+
+  end
+
   private
 
   def note_params

@@ -714,3 +714,11 @@ a img.aligncenter {
   width: 300px;
 }
 
+#alert{
+  position:fixed;
+  top: 55px;
+  left: 60px;
+  z-index: 11;
+
+}
+

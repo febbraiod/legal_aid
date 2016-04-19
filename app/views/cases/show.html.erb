@@ -46,6 +46,8 @@
     <% @case_notes.each do |note| %>
       <p><%=note.content %></p>
       <p>- <%=note.user.full_name %><br> <%= note.created_at %></p>
+      <p><%=link_to 'edit your note', edit_note_path(note)%></p>
+      <p><%=link_to 'delete', note_path(note), method: :delete%></p>
       <br>
     <% end %>
   </div>

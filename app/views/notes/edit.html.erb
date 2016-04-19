@@ -1,0 +1,13 @@
+<div class = 'col-1'>
+
+  <p>Note by -<%=@note.user.full_name %></p> 
+  <p>-<%=@note.created_at %></p>
+
+  <%= form_for @note do |f|%>
+
+    <%=f.text_area :content%><br>
+    <%=f.submit%>
+
+  <% end %>
+
+</div>

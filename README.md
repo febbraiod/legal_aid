@@ -6,18 +6,17 @@ NEXT ORGANIZE THIS TODO LIST AFTER LUNCH!
 
 Setup all Pundit permissions
 
-users/id/cases
-only available to user and admin?(is this neccesary? why are we hiding this route?)
-
-any user can leave a note
-only the owner of the note may edit it
-owners and admins can delete notes
-
 user delete (only admin may delete)
 case update and delete (only admins may delete, only users assigned to the case can edit)
 
+owners and admins can delete notes => this is working but not with pundit. i coded my own work around.
+
+users/id/cases
+only available to user and admin?(is this neccesary? why are we hiding this route?)
+
 Think about css?(edit responsive css as well) => fine for now, but needs polishing for user.
 add search for cases(index and caption) and clients(someday)
+add fee schedule calc(someday)
 
 maybe:
 <!--   a client has many cases

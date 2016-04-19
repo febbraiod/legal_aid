@@ -8,52 +8,52 @@
 </head>
 <body>
 
-<div id="wrapper">
-  <% if current_user %>
-    <nav id="nav">
-      <ul id="menu-main-navigation" class="">
-        <li id="menu-item-90">
-        <%= link_to "case list", cases_path, class: "style-1 menu-item menu-item-type-post_type menu-item-object-page active page_item page-item-2 current_page_item menu-item-90" %>
-        </li>
-        <li id="menu-item-103">
-        <%= link_to "Clients", clients_path, class: "style-2 menu-item menu-item-type-custom menu-item-object-custom menu-item-103"%>
-        </li>
-        <li id="menu-item-104">
-        <%= link_to "Users", users_path, class: "style-3 menu-item menu-item-type-custom menu-item-object-custom menu-item-104"%>
-        </li>
-        <li id="menu-item-105">
-          <%= link_to "Stats", stats_path, class: "style-4 menu-item menu-item-type-custom menu-item-object-custom menu-item-105"%>
-        </li>
-        <li id="menu-item-107"><%=link_to "sign out", destroy_user_session_path, method: :delete, class: "style-6 menu-item menu-item-type-custom menu-item-object-custom menu-item-107" %></li>
-      </ul>   
-    </nav>
-  <%else%>
-    <nav id="nav">
-      <ul id="menu-main-navigation" class="">
-        <li id="menu-item-90">
-          <a href="/" class="style-1 menu-item menu-item-type-post_type menu-item-object-page active page_item page-item-2 current_page_item menu-item-90">Home</a>
-        </li>
-        <li id="menu-item-103">
-          <a href="/about" class="style-2 menu-item menu-item-type-custom menu-item-object-custom menu-item-103">About Us</a>
-        </li>
-        <li id="menu-item-104"><a href="http://www.työsopimuslaki.fi" class="style-3 menu-item menu-item-type-custom menu-item-object-custom menu-item-104">Location</a>
-        </li>
-        <li id="menu-item-105">
-        <a href="http://www.yrityssaneerausmenettely.fi" class="style-4 menu-item menu-item-type-custom menu-item-object-custom menu-item-105">Contact Us</a>
-        </li>
-        <li id="menu-item-107"><%= link_to "Admin", new_user_session_path, class: "style-6 menu-item menu-item-type-custom menu-item-object-custom menu-item-107" %></li>
-      </ul>   
-    </nav>
-  <%end%>
+<% if current_user %>
+  <nav id="nav">
+    <ul id="menu-main-navigation" class="">
+      <li id="menu-item-90">
+      <%= link_to "case list", cases_path, class: "style-1 menu-item menu-item-type-post_type menu-item-object-page active page_item page-item-2 current_page_item menu-item-90" %>
+      </li>
+      <li id="menu-item-103">
+      <%= link_to "Clients", clients_path, class: "style-2 menu-item menu-item-type-custom menu-item-object-custom menu-item-103"%>
+      </li>
+      <li id="menu-item-104">
+      <%= link_to "Users", users_path, class: "style-3 menu-item menu-item-type-custom menu-item-object-custom menu-item-104"%>
+      </li>
+      <li id="menu-item-105">
+        <%= link_to "Stats", stats_path, class: "style-4 menu-item menu-item-type-custom menu-item-object-custom menu-item-105"%>
+      </li>
+      <li id="menu-item-107"><%=link_to "sign out", destroy_user_session_path, method: :delete, class: "style-6 menu-item menu-item-type-custom menu-item-object-custom menu-item-107" %></li>
+    </ul>   
+  </nav>
+<%else%>
+  <nav id="nav">
+    <ul id="menu-main-navigation" class="">
+      <li id="menu-item-90">
+        <a href="/" class="style-1 menu-item menu-item-type-post_type menu-item-object-page active page_item page-item-2 current_page_item menu-item-90">Home</a>
+      </li>
+      <li id="menu-item-103">
+        <a href="/about" class="style-2 menu-item menu-item-type-custom menu-item-object-custom menu-item-103">About Us</a>
+      </li>
+      <li id="menu-item-104"><a href="http://www.työsopimuslaki.fi" class="style-3 menu-item menu-item-type-custom menu-item-object-custom menu-item-104">Location</a>
+      </li>
+      <li id="menu-item-105">
+      <a href="http://www.yrityssaneerausmenettely.fi" class="style-4 menu-item menu-item-type-custom menu-item-object-custom menu-item-105">Contact Us</a>
+      </li>
+      <li id="menu-item-107"><%= link_to "Admin", new_user_session_path, class: "style-6 menu-item menu-item-type-custom menu-item-object-custom menu-item-107" %></li>
+    </ul>   
+  </nav>
+<%end%>
 
+<div id = 'alert'>
   <% if notice || alert %>
     <p class="error"><%= notice %></p>
     <p class="error"><%= alert %></p>
   <%end%>
+</div>
 
   <%= yield %>
 
-</div>
 
 
 
