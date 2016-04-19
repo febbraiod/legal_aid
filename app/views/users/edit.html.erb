@@ -17,10 +17,12 @@
     <%= f.email_field :email %>
   </div>
 
-  <div class="field">
-    <%= f.label :approved %>
-    <%= f.check_box :approved %>
-  </div>
+  <%unless @user.approved%>
+    <div class="field">
+      <%= f.label :approved %>
+      <%= f.check_box :approved %>
+    </div>
+  <%end%>
 
   <div class="field">
     <%= f.label :role %>

@@ -61,8 +61,10 @@
       <%end%>
     <br>
     <%= f.submit %>
+    <% end %>
+    <br>
+    <%=link_to 'destroy this case', case_path(@case), method: :delete if @case.id%>
   </div>
-<% end %>
 
 
 

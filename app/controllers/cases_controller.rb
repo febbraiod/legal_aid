@@ -41,16 +41,22 @@ class CasesController < ApplicationController
 
   def edit
     @case = Case.find_by(id: params[:id])
-    @attributes = @case.form_attributes
+    if policy(@case).update?
+      @attributes = @case.form_attributes
+    else
+      flash[:message] = "Denied: non case_worker"
+      redirect_to case_path(@case)
+    end
   end
 
   def update
     @case = Case.find_by(id: params[:id])
-    if @case.update(case_params)
+    if policy(@case).update?
+      @case.update(case_params)
       flash[:message] = "Case successfully updated"
       redirect_to case_path(@case)
     else
-      flash[:message] = "Error, please try again."
+      flash[:message] = "Denied: non case_worker"
       redirect_to case_path(@case)
     end
   end
@@ -66,6 +72,18 @@ class CasesController < ApplicationController
     @newnote = Note.new()
     @newnote.user = current_user
     @newnote.case = @case
+  end
+
+  def destroy
+    @case = Case.find_by(id: params[:id])
+    if policy(@case).destroy?
+      @case.delete
+      flash[:message] = "Case Successfully deleted"
+      redirect_to cases_path
+    else
+      flash[:message] = "Only Admins many delete cases"
+      redirect_to cases_path
+    end
   end
 
   private

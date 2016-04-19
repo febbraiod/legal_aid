@@ -36,8 +36,9 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
 
     if policy(@user).destroy?
-      @user.delete
-      flash[:message] = "User successfully deleted"
+      @user.approved = false
+      @user.save
+      flash[:message] = "User successfully removed from active users"
       redirect_to users_path
     else
       flash[:message] = "Only Admins may delete users"
