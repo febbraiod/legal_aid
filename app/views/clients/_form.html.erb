@@ -1,11 +1,13 @@
-<%= form_for @client do |f| %>
+<div class = 'from_col-1'>
+  <%= form_for @client do |f| %>
 
-  <% @attributes.each do |a| %>
-    <%= f.label a %><br>
-    <%= f.text_field a %><br>
+    <% @attributes.each do |a| %>
+      <%= f.label a %><br>
+      <%= f.text_field a %><br>
+      <br>
+    <% end %>
     <br>
+    <%= f.submit %>
+
   <% end %>
-
-  <%= f.submit %>
-
-<% end %>
+</div>
