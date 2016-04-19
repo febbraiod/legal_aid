@@ -4,17 +4,21 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'static#home'
+  
   get '/about' => 'static#about'
+  
   get '/stats' => 'static#stats'
   
   get '/users/unapproved' => 'users#unapproved'
+  
   resources :users
 
+  resources :cases
+  
   resources :clients do
     resources :cases
   end
 
-  resources :cases
   resources :notes
 
   # The priority is based upon order of creation: first created -> highest priority.

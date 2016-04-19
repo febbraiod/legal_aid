@@ -3,12 +3,13 @@ A web app for law firms built with Ruby on Rails
 
 Plan of attack:
 
-Validations?(do i need more?)
+case update routes are weird. landing on cases/1 even when editing 4.
+also sometimes cant click the update button
 On case page list assigned users(lawyers and paras)!!
 Setup Pundit
 Think about css?(edit responsive css as well)
 use 'open' attribute to sort case lists
-find a way to hide the sign_up option. make it so only admins can add users.
+need delete options
 add search for cases(index and caption) and clients(someday)
 
 

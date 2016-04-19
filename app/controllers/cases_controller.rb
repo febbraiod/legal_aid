@@ -38,12 +38,15 @@ class CasesController < ApplicationController
   end
 
   def edit
-    @case = Case.find_by(params[:id])
+    binding.pry
+    @case = Case.find_by(id: params[:id])
+    binding.pry
     @attributes = @case.form_attributes
   end
 
   def update
-    @case = Case.find_by(params[:id])
+    @case = Case.find_by(id: params[:id])
+    binding.pry
     if @case.update(case_params)
       flash[:message] = "Case successfully updated"
       redirect_to case_path(@case)
@@ -55,6 +58,7 @@ class CasesController < ApplicationController
 
   def show
     @case = Case.find_by(id: params[:id])
+    # @lawyers = @case.workers.where(role == 'lawyer' || role == 'admin')
     @attributes = @case.form_attributes.sort
 
     @case_notes = @case.notes.reverse

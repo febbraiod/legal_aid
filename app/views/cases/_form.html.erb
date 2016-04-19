@@ -1,60 +1,60 @@
-<div class="form_col-1">
-  <%= form_for @case do |f| %>
+<%= form_for @case do |f| %>
+  <div class="form_col-1">
 
-  <% @attributes.each do |a| %>
-    <% if a == :open %>
+    <% @attributes.each do |a| %>
+      <% if a == :open %>
+        <%= f.label a %><br>
+        <%= f.check_box a %><br>
+      <% elsif a == :client_id%>
+        <!-- do nothing -->
+      <% else %>
       <%= f.label a %><br>
-      <%= f.check_box a %><br>
-    <% elsif a == :client_id%>
-      <!-- do nothing -->
-    <% else %>
-    <%= f.label a %><br>
-    <%= f.text_field a %><br>
-    <br>
+      <%= f.text_field a %><br>
+      <br>
+      <% end %>
     <% end %>
-  <% end %>
-  <br>
-  <p>Client:</p>
-  <%= f.collection_select :client_id, Client.all, :id, :full_name, include_blank: true %>
-</div>
+    <br>
+    <p>Client:</p>
+    <%= f.collection_select :client_id, Client.all, :id, :full_name, include_blank: true %>
+  </div>
 
-<div class="form_col-2">
-  <h5>If new client:</h5>
-  <%= f.fields_for :client do |c| %>
-    <%= c.label :first_name %><br>
-    <%= c.text_field :first_name%><br><br>
-    <%= c.label :last_name %><br>
-    <%= c.text_field :last_name%><br><br>
-    <%= c.label :company_name %><br>
-    <%= c.text_field :company_name%><br><br>
-    <%= c.label :home_phone %><br>
-    <%= c.text_field :home_phone%><br><br>
-    <%= c.label :work_phone %><br>
-    <%= c.text_field :work_phone%><br><br>
-    <%= c.label :cell_phone %><br>
-    <%= c.text_field :cell_phone%><br>
-    <%= c.label :email %><br>
-    <%= c.text_field :email%><br>
-    <%= c.label :address %><br>
-    <%= c.text_field :address%><br>
-    <%= c.label :city %><br>
-    <%= c.text_field :city%><br>
-    <%= c.label :state %><br>
-    <%= c.text_field :state%><br>
-    <%= c.label :zip %>
-    <%= c.text_field :zip%><br>
-  <% end %>
-</div>
+  <div class="form_col-2">
+    <h5>If new client:</h5>
+    <%= f.fields_for :client do |c| %>
+      <%= c.label :first_name %><br>
+      <%= c.text_field :first_name%><br><br>
+      <%= c.label :last_name %><br>
+      <%= c.text_field :last_name%><br><br>
+      <%= c.label :company_name %><br>
+      <%= c.text_field :company_name%><br><br>
+      <%= c.label :home_phone %><br>
+      <%= c.text_field :home_phone%><br><br>
+      <%= c.label :work_phone %><br>
+      <%= c.text_field :work_phone%><br><br>
+      <%= c.label :cell_phone %><br>
+      <%= c.text_field :cell_phone%><br>
+      <%= c.label :email %><br>
+      <%= c.text_field :email%><br>
+      <%= c.label :address %><br>
+      <%= c.text_field :address%><br>
+      <%= c.label :city %><br>
+      <%= c.text_field :city%><br>
+      <%= c.label :state %><br>
+      <%= c.text_field :state%><br>
+      <%= c.label :zip %>
+      <%= c.text_field :zip%><br>
+    <% end %>
+  </div>
 
-<div class="form_col-3">
-  Assign Attorneys and/or paralegals:<br>
-    <%= f.collection_check_boxes :case_workers, User.all, :id, :full_name do |b|%>
-      <li><%=b.check_box + " " + b.label%></li>
-    <%end%>
-  <br>
-  <%= f.submit %>
+  <div class="form_col-3">
+    Assign Attorneys and/or paralegals:<br>
+      <%= f.collection_check_boxes :case_workers, User.all, :id, :full_name do |b|%>
+        <li><%=b.check_box + " " + b.label%></li>
+      <%end%>
+    <br>
+    <%= f.submit %>
+  </div>
 <% end %>
-</div>
 
 
 

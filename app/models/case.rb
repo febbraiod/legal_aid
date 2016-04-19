@@ -5,7 +5,7 @@ class Case < ActiveRecord::Base
   validates :client, presence: true
 
   has_many :case_workers
-  has_many :workers, through: :case_workers, source: :user
+  has_many :workers, through: :case_workers, foreign_key: :user_id
 
   has_many :notes
   has_many :note_authors, through: :notes, source: :user
