@@ -1,7 +1,7 @@
-<br>
-
-<h1>Client Info:</h1>
-  <p><%= "Name: " + @client.full_name %><p>
+<div class = 'col-1'>
+  <h1>Client Info:</h1>
+  <br>
+  <p><%= "Name: " + @client.full_name %></p>
   <% @attributes.each do |a| %>
     <% if !@client.send(a.to_s).blank? %>
     <p><%= a.to_s.split("_").join(" ").titleize + ": " + @client.send(a.to_s) unless a.to_s == 'first_name' || a.to_s == 'last_name' %></p>
@@ -18,4 +18,5 @@
   <br>
   <br>
   <br>
-  <p><%=link_to "See this clients cases", client_cases_path(@client)%>
+  <p><%=link_to "See this clients cases", client_cases_path(@client)%></p>
+</div>

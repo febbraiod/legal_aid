@@ -4,12 +4,12 @@
     <% @attributes.each do |a| %>
       <% if a == :open %>
         <%= f.label a %><br>
-        <%= f.check_box a %><br>
+        <%= f.check_box a %>
       <% elsif a == :client_id%>
         <!-- do nothing -->
       <% else %>
       <%= f.label a %><br>
-      <%= f.text_field a %><br>
+      <%= f.text_field a %>
       <br>
       <% end %>
     <% end %>
@@ -19,40 +19,43 @@
   </div>
 
   <div class="form_col-2">
+  <br>
     <h5>If new client:</h5>
     <%= f.fields_for :client do |c| %>
       <%= c.label :first_name %><br>
-      <%= c.text_field :first_name%><br><br>
+      <%= c.text_field :first_name%>
       <%= c.label :last_name %><br>
-      <%= c.text_field :last_name%><br><br>
+      <%= c.text_field :last_name%>
       <%= c.label :company_name %><br>
-      <%= c.text_field :company_name%><br><br>
+      <%= c.text_field :company_name%>
       <%= c.label :home_phone %><br>
-      <%= c.text_field :home_phone%><br><br>
+      <%= c.text_field :home_phone%>
       <%= c.label :work_phone %><br>
-      <%= c.text_field :work_phone%><br><br>
+      <%= c.text_field :work_phone%>
       <%= c.label :cell_phone %><br>
-      <%= c.text_field :cell_phone%><br>
+      <%= c.text_field :cell_phone%>
       <%= c.label :email %><br>
-      <%= c.text_field :email%><br>
+      <%= c.text_field :email%>
       <%= c.label :address %><br>
-      <%= c.text_field :address%><br>
+      <%= c.text_field :address%>
       <%= c.label :city %><br>
       <%= c.text_field :city%><br>
       <%= c.label :state %><br>
-      <%= c.text_field :state%><br>
-      <%= c.label :zip %>
-      <%= c.text_field :zip%><br>
+      <%= c.text_field :state%><
+      <%= c.label :zip %><br>
+      <%= c.text_field :zip%>
     <% end %>
   </div>
 
   <div class="form_col-3">
-    <p>Workers already assigned to case:</p>
+    <p><%= "Workers already assigned to case:" unless @case.workers.empty? %></p>
+    <ul>
     <%@case.workers.each do |w|%>
-      <p><%=w.full_name%></p>
+      <li><%=w.full_name%></li>
     <%end%>
+    </ul>
     <br>
-    Assign Attorneys and/or paralegals:<br>
+    <p>Assign Attorneys and/or paralegals:</p>
       <%= f.collection_check_boxes :case_workers, User.all, :id, :full_name do |b|%>
         <li><%=b.check_box + " " + b.label %></li>
       <%end%>
