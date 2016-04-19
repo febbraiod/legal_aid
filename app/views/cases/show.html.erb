@@ -18,14 +18,28 @@
         <%end%>
       <%end%>
     <%end%>
-    <!-- maybe too much logic in view?  how can i fix this?-->
-    <br>
-    <p><%=link_to "Edit Case Info", edit_case_path(@case)%></p>
+  <br>
+    <!-- maybe too much logic above in view?  how can i fix this?-->
+
+  <h5>Attorney's Assigned:</h5>
+  <ul>
+    <% @lawyers.each do |l|%>
+      <li><%= l.full_name%></li>
+    <% end %>
+  </ul>
+  <br>
+  <h5>Paralegal's Assigned:</h5>
+  <ul>
+    <% @paras.each do |p|%>
+      <li><%= p.full_name %></li>
+    <% end %>
+  </ul>
+  <br>
+  <p><%=link_to "Edit Case Info", edit_case_path(@case)%></p>
 
 </div>
 
 <div class='col-2'>
-
   <div class = "case_notes">
     <h4>Case Notes:</h4>
     <br>
@@ -35,7 +49,6 @@
       <br>
     <% end %>
   </div>
-
 </div>
 
   <!--the new note form should be the last thing on the note column-->
@@ -50,6 +63,5 @@
     <%=f.submit%>
 
   <%end%>
-
 </div>
   

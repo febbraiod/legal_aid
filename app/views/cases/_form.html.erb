@@ -47,9 +47,14 @@
   </div>
 
   <div class="form_col-3">
+    <p>Workers already assigned to case:</p>
+    <%@case.workers.each do |w|%>
+      <p><%=w.full_name%></p>
+    <%end%>
+    <br>
     Assign Attorneys and/or paralegals:<br>
       <%= f.collection_check_boxes :case_workers, User.all, :id, :full_name do |b|%>
-        <li><%=b.check_box + " " + b.label%></li>
+        <li><%=b.check_box + " " + b.label %></li>
       <%end%>
     <br>
     <%= f.submit %>

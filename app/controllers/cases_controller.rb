@@ -20,10 +20,8 @@ class CasesController < ApplicationController
 
   def create
     if case_params[:client_id].empty?
-      binding.pry
       @case = Case.new(case_params)
     else
-      binding.pry
       @case = Case.new(case_params) 
       @case.client = Client.find_by(case_params[:client_id])
     end
@@ -38,9 +36,7 @@ class CasesController < ApplicationController
   end
 
   def edit
-    binding.pry
     @case = Case.find_by(id: params[:id])
-    binding.pry
     @attributes = @case.form_attributes
   end
 
@@ -58,9 +54,11 @@ class CasesController < ApplicationController
 
   def show
     @case = Case.find_by(id: params[:id])
-    # @lawyers = @case.workers.where(role == 'lawyer' || role == 'admin')
     @attributes = @case.form_attributes.sort
 
+    @lawyers = @case.workers.select {|u| u if u.role == "lawyer" || u.role == "admin"}
+    @paras = @case.workers.select {|u| u if u.role == "para"}
+  
     @case_notes = @case.notes.reverse
     @newnote = Note.new()
     @newnote.user = current_user

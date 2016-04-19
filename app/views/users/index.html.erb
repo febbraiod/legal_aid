@@ -1,17 +1,24 @@
 <% if flash[:message] %>
-  <div class ='error'><%=flash[:message]%></div>
+  <div class = 'error'><%=flash[:message]%></div>
 <% end %>
 
+<div class = 'col-1'>
 <h1>Users</h1>
 
-<%= link_to "Users awaiting approval", users_unapproved_path %>
-
-<table>
+<table id = 'users_table'>
+  <tr>
+    <th class = 'user_head'>User</th>
+    <th class = 'user_head'>Approved?</th> 
+    <th class = 'user_head'>Edit</th>
+  </tr>
   <%@users.each do |user|%>
     <tr>
-        <td><%= user.email%></td>
+        <td><%= user.full_name%></td>
         <td><%= user.approved%></td>
         <td><%= link_to "Edit", edit_user_path(user)%></td>
     </tr>
   <%end%>
 </table>
+
+<%= link_to "Click here for only users awaiting approval", users_unapproved_path %>
+</div>

@@ -3,11 +3,8 @@ A web app for law firms built with Ruby on Rails
 
 Plan of attack:
 
-case update routes are weird. landing on cases/1 even when editing 4.
-also sometimes cant click the update button
-On case page list assigned users(lawyers and paras)!!
-Setup Pundit
-Think about css?(edit responsive css as well)
+Setup all Pundit permissions
+Think about css?(edit responsive css as well) =>> the css for the column on the show case page is fucked.
 use 'open' attribute to sort case lists
 need delete options
 add search for cases(index and caption) and clients(someday)

@@ -13,12 +13,13 @@
     <nav id="nav">
       <ul id="menu-main-navigation" class="">
         <li id="menu-item-90">
-          <a href="/" class="style-1 menu-item menu-item-type-post_type menu-item-object-page active page_item page-item-2 current_page_item menu-item-90">Home</a>
+        <%= link_to "case list", cases_path, class: "style-1 menu-item menu-item-type-post_type menu-item-object-page active page_item page-item-2 current_page_item menu-item-90" %>
         </li>
         <li id="menu-item-103">
-          <%= link_to "case list", cases_path, class: "style-2 menu-item menu-item-type-custom menu-item-object-custom menu-item-103" %>
+        <%= link_to "Clients", clients_path, class: "style-2 menu-item menu-item-type-custom menu-item-object-custom menu-item-103"%>
         </li>
-        <li id="menu-item-104"><%= link_to "Clients", clients_path, class: "style-3 menu-item menu-item-type-custom menu-item-object-custom menu-item-104"%>
+        <li id="menu-item-104">
+        <%= link_to "Users", users_path, class: "style-3 menu-item menu-item-type-custom menu-item-object-custom menu-item-104"%>
         </li>
         <li id="menu-item-105">
           <%= link_to "Stats", stats_path, class: "style-4 menu-item menu-item-type-custom menu-item-object-custom menu-item-105"%>
