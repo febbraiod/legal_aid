@@ -30,5 +30,7 @@
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
+
+    <%= link_to 'remove this user', user_path(@user), method: :delete %>
 <% end %>
 </div>

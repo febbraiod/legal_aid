@@ -6,12 +6,17 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by(id: params[:id])
+    if !policy(@user).edit?
+      flash[:message] = "Only admins may edit users"
+      redirect_to users_path
+    end
   end
 
   def update
     @user = User.find_by(id: params[:id])
-    authorize @user
-    if @user.update(user_params)
+    #authorize @user => this is throwing an error I dont remember getting int he orginal lab.
+    if policy(@user).update?
+      @user.update(user_params)
       redirect_to user_path(@user)
     else
       flash[:message] = "Only admins may update users"
@@ -27,11 +32,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find_by(id: params[:id])
+
+    if policy(@user).destroy?
+      @user.delete
+      flash[:message] = "User successfully deleted"
+      redirect_to users_path
+    else
+      flash[:message] = "Only Admins may delete users"
+      redirect_to users_path
+    end
+  end
+
   def unapproved
     @users = User.all.where(approved: false)
     flash[:message] = "Only Admins may approved users"
     redirect_to users_path unless current_user.admin?
   end
+
 
   private
 

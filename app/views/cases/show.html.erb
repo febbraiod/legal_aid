@@ -1,12 +1,12 @@
 <br>
-<% if flash[:message] %>
-  <div class = "error">
-  <h4><%= flash[:message] %>!</h4>
-  </div>
-  <br>
-<% end %>
-
 <div class='col-1'>
+  <% if flash[:message] %>
+    <div class = "error">
+    <h4><%= flash[:message] %>!</h4>
+    </div>
+    <br>
+  <% end %>
+
   <h1>Case Info:</h1>
   <br>
     <% @attributes.each do |a| %>
@@ -45,9 +45,8 @@
     <br>
     <% @case_notes.each do |note| %>
       <p><%=note.content %></p>
-      <p>- <%=note.user.full_name %><br> <%= note.created_at %></p>
-      <p><%=link_to 'edit your note', edit_note_path(note)%></p>
-      <p><%=link_to 'delete', note_path(note), method: :delete%></p>
+      <p>- <%=note.user.full_name %><br><br><%= note.created_at %></p>
+      <p><%=link_to 'edit your note', edit_note_path(note)%> &nbsp; &nbsp; &nbsp; <%=link_to 'delete', note_path(note), method: :delete%></p>
       <br>
     <% end %>
   </div>

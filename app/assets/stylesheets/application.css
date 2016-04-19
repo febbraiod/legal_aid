@@ -652,7 +652,7 @@ a img.aligncenter {
 .col-1 {
   float: left;
   position: relative;
-  top: 50px;
+  top: 75px;
   left: 5%;
   width: 30%;
   height: 100%;
@@ -706,12 +706,12 @@ a img.aligncenter {
 
 #new_case_header{
   position: relative;
-  top: 38px;
+  top: 60px;
   left: 5%;
 }
 
 #users_table{
-  width: 300px;
+  width: 350px;
 }
 
 #alert{

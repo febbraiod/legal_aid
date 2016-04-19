@@ -7,9 +7,12 @@ NEXT ORGANIZE THIS TODO LIST AFTER LUNCH!
 Setup all Pundit permissions
 
 user delete (only admin may delete)
+
 case update and delete (only admins may delete, only users assigned to the case can edit)
 
-owners and admins can delete notes => this is working but not with pundit. i coded my own work around.
+check css for case show page
+
+owners and admins can delete notes => this is working but not with authorize @record. not sure why?
 
 users/id/cases
 only available to user and admin?(is this neccesary? why are we hiding this route?)
