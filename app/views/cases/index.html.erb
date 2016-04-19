@@ -1,8 +1,14 @@
 <div class='col-1'>
-<h1>Case List</h1>
+<%if @client%>
+  <h4><%= link_to @client.full_name, client_path(@client)%>'s Case List</h1>
+<%elsif @user%>
+  <h4><%= link_to @user.full_name, user_path(@user)%>'s Assigned Cases</h1>
+<%else%>
+  <h3>Firm Case List</h1>
+<%end%>
 <br>
 
-<h2>Active Cases</h2>
+<h5>Active Cases</h2>
 <ul>
   <% @open_cases.each do |o| %>
     <li>
@@ -11,7 +17,7 @@
   <% end %>
 </ul>
 
-<h2>Closed Cases</h2>
+<h5>Closed Cases</h2>
 <ul>
   <% @closed_cases.each do |c| %>
     <li>
@@ -20,9 +26,12 @@
   <% end %>
 </ul>
 
+<%if @user || @client%>
+<%=link_to "Add new case", new_case_path%>
 </div>
-
-<!-- new column -->
+<%else%>
+</div>
 <div class='col-2'>
   <%=link_to "Add new case", new_case_path%>
 </div>
+<%end%>

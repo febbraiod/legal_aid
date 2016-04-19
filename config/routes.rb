@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     resources :cases
   end
 
+  resources :users do
+    resources :cases
+  end
+
   resources :notes
 
   # The priority is based upon order of creation: first created -> highest priority.

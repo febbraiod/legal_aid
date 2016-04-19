@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, presence: true 
   
+  has_many :case_workers
   has_many :cases, through: :case_workers
 
   has_many :notes

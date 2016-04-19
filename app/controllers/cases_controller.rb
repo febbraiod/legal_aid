@@ -4,7 +4,12 @@ class CasesController < ApplicationController
   def index
     if params[:client_id]
       @client = Client.find_by(id: params[:client_id])
-      @cases = @client.cases
+      @open_cases = @client.cases.where(open: true)
+      @closed_cases = @client.cases.where(open: false)
+    elsif params[:user_id]
+      @user = User.find_by(id: params[:user_id])
+      @open_cases = @user.cases.where(open: true)
+      @closed_cases = @user.cases.where(open: false)
     else
       @open_cases = Case.all.where(open: true)
       @closed_cases = Case.all.where(open: false)
