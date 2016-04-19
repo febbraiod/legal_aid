@@ -3,9 +3,7 @@ A web app for law firms built with Ruby on Rails
 
 todo:
 
-check css for users waiting for approval
-check css for sign up page
-check css for case show page
+change names for presentation
 
 owners and admins can delete notes => this is working but not with authorize @record. not sure why?
 

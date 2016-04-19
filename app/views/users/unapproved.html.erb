@@ -1,11 +1,18 @@
-<h1>Unapproved Users</h1>
 
-<table>
+<div class = 'col-1'>
+<h1>Unapproved Users</h1>
+<table id = 'users_table'>
+  <tr>
+    <th class = 'user_head'>User</th>
+    <th class = 'user_head'>Approved?</th> 
+    <th class = 'user_head'>Edit</th>
+  </tr>
   <%@users.each do |u|%>
     <tr>
-        <td><%= u.email%></td>
+        <td><%= u.full_name%></td>
         <td><%= u.approved%></td>
         <td><%= link_to "Edit", edit_user_path(u)%></td>
     </tr>
   <%end%>
 </table>
+</div>
