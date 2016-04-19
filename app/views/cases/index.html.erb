@@ -2,13 +2,24 @@
 <h1>Case List</h1>
 <br>
 
+<h2>Active Cases</h2>
 <ul>
-  <% @cases.each do |c| %>
-  <li>
-    <%= link_to c.caption, case_path(c) %>
-  </li>
+  <% @open_cases.each do |o| %>
+    <li>
+      <%= link_to o.caption, case_path(o) %>
+    </li>
   <% end %>
 </ul>
+
+<h2>Closed Cases</h2>
+<ul>
+  <% @closed_cases.each do |c| %>
+    <li>
+      <%= link_to c.caption, case_path(c) %>
+    </li>
+  <% end %>
+</ul>
+
 </div>
 
 <!-- new column -->

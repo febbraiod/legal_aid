@@ -1,38 +1,31 @@
 s# legal-aid
 A web app for law firms built with Ruby on Rails
 
-Plan of attack:
+NEXT ORGANIZE THIS TODO LIST AFTER LUNCH!
+
+
+user/1/cases
+also add link to user page
 
 Setup all Pundit permissions
 
-user/1/cases
+users/id/caes
 only available to user and admin
-also add link to user page
+only user and admin should be able to see user show page as well
 
-only user and admin should be able to see their own user page as well
 
-use 'open' attribute to sort case lists
-Think about css?(edit responsive css as well) =>> the css for the column on the show case page is fucked.
-need delete options
+Think about css?(edit responsive css as well) => fine for now, but needs polishing for user.
 add search for cases(index and caption) and clients(someday)
 
 
-Roadmap:
+any user can leave a note
+only the owner of the note may edit it
+owners and admins can delete notes
 
-NEED to add and set up pundit for roles and scopes. [user, attorney, admin]
-
-
-ned routes user/id/cases
-
-  #the lawyer routes should only be accessable to the lawyer being identified and to the admins
-
-  any user can leave a note
-  only the owner of the note may edit it
-  owners and admins can delete notes
-
+maybe:
 <!--   a client has many cases
   cases belong to a client -->
   a lawyer has many clients through cases <!-- this might need to be a user, where you use the roles for access to lawyers -->
 
-  lawyer crud (only admin may delete)
-  case crud (only admins may delete, only users assigned to the case can edit)
+  user delete (only admin may delete)
+  case update and delete (only admins may delete, only users assigned to the case can edit)

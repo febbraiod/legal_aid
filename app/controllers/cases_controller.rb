@@ -1,14 +1,13 @@
 class CasesController < ApplicationController
   before_action :authenticate_user!
-  
-  #need to have a route for open cases v. all cases v. closed cases.
 
   def index
     if params[:client_id]
       @client = Client.find_by(id: params[:client_id])
       @cases = @client.cases
     else
-      @cases = Case.all
+      @open_cases = Case.all.where(open: true)
+      @closed_cases = Case.all.where(open: false)
     end
   end
 
@@ -42,7 +41,6 @@ class CasesController < ApplicationController
 
   def update
     @case = Case.find_by(id: params[:id])
-    binding.pry
     if @case.update(case_params)
       flash[:message] = "Case successfully updated"
       redirect_to case_path(@case)
