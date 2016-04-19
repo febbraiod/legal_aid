@@ -21,6 +21,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    if !policy(@user).show?
+      flash[:message] = "Non Admin: you may only view your own profile"
+      redirect_to users_path
+    end
   end
 
   def unapproved

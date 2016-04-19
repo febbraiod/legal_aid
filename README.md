@@ -1,4 +1,4 @@
-s# legal-aid
+# legal-aid
 A web app for law firms built with Ruby on Rails
 
 NEXT ORGANIZE THIS TODO LIST AFTER LUNCH!
@@ -7,9 +7,7 @@ NEXT ORGANIZE THIS TODO LIST AFTER LUNCH!
 Setup all Pundit permissions
 
 users/id/cases
-only available to user and admin?(not sure how...scope? is this nesscary? why are we hiding this route?)
-
-only user and admin should be able to see user show page as well(yes)
+only available to user and admin?(is this neccesary? why are we hiding this route?)
 
 any user can leave a note
 only the owner of the note may edit it
