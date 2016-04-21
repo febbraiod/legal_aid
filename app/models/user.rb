@@ -22,19 +22,6 @@ class User < ActiveRecord::Base
   def full_name
     self.first_name + " " + self.last_name
   end
-
-  #for omniauth
-  def self.from_omniauth(auth) 
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.email = auth.info.email
-      user.first_name = auth.info.name #rigged to make omni doable for requirement
-      user.last_name = auth.info.name  #rigged to make omni doable for requirement
-      user.approved = true  #rigged to make omni doable for requirement
-      user.password = Devise.friendly_token[0,20]
-    end
-  end
   
   #overriding devise in order to implement admin authorization
   def active_for_authentication? 
@@ -47,6 +34,19 @@ class User < ActiveRecord::Base
     else 
       super # Use whatever other message 
     end 
+  end
+
+  #for omniauth
+  def self.from_omniauth(auth) 
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.first_name = auth.info.name #rigged to make omni doable for requirement
+      user.last_name = auth.info.name  #rigged to make omni doable for requirement
+      user.approved = true  #rigged to make omni doable for requirement
+      user.password = Devise.friendly_token[0,20]
+    end
   end
 
 end

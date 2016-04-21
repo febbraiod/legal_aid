@@ -1,22 +1,26 @@
 <div class = 'col-1'>
+  <%if flash[:message]%>
+    <div class = 'error'>
+    <p><%=flash[:message]%></p>
+    </div>
+  <%end%>
+
   <h1>Client Info:</h1>
   <br>
   <p><%= "Name: " + @client.full_name %></p>
   <% @attributes.each do |a| %>
     <% if !@client.send(a.to_s).blank? %>
     <p><%= a.to_s.split("_").join(" ").titleize + ": " + @client.send(a.to_s) unless a.to_s == 'first_name' || a.to_s == 'last_name' %></p>
-
     <% end %>
   <% end %>
   <br>
   <br>
-  <%=link_to "Edit Client Info", edit_client_path%>
-
-  <!-- need a drop down to navigate to clients cases and an edit client button -->
-  <!-- new column -->
-  <br>
-  <br>
-  <br>
-  <br>
   <p><%=link_to "See this clients cases", client_cases_path(@client)%></p>
+  <p><%=link_to "Edit Client Info", edit_client_path%></p>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <p><%=link_to "Delete Client", client_path(@client), method: :delete%></p>
 </div>

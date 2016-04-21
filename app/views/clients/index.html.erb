@@ -1,5 +1,11 @@
 
 <div class='col-1'>
+  <%if flash[:message]%>
+    <div class = 'error'>
+    <p><%=flash[:message]%></p>
+    </div>
+  <%end%>
+  
   <h1>Client List</h1>
 
   <% @clients.each do |client| %>

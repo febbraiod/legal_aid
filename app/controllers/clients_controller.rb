@@ -24,15 +24,33 @@ class ClientsController < ApplicationController
   def edit
     @client = Client.find_by(id: params[:id])
     @attributes = @client.form_attributes
+    if !policy(@client).edit?
+      flash[:message] = "Non admins may not update clients"
+      redirect_to client_path(@client)
+    end
   end
 
   def update
     @client = Client.find_by(id: params[:id])
+    if policy(@client).update?
     @client.update(client_params)
     redirect_to client_path(@client)
+    else
+      flash[:message] = "Non admins may not update clients"
+      redirect_to client_path(@client)
+    end
   end
 
-  def destory
+  def destroy
+    @client = Client.find_by(id: params[:id])
+    if policy(@client).destroy?
+      flash[:message] = "Client Deleted"
+      @client.destory
+      redirect_to clients_path
+    else
+      flash[:message] = "Only admins may delete clients"
+      redirect_to clients_path
+    end
   end
 
 
