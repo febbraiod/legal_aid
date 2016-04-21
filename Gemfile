@@ -28,6 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 #for authenication
 gem 'devise'
+gem 'omniauth-github'
 # for authorization
 gem "pundit"
 
