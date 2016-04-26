@@ -1,6 +1,12 @@
 <div class = 'from_col-1'>
   <%= form_for @client do |f| %>
 
+    <%=f.label :first_name%><br>
+    <%=f.text_field :first_name%>
+
+    <%=f.label :last_name%><br>
+    <%=f.text_field :last_name%>
+
     <% @attributes.each do |a| %>
       <%= f.label a %><br>
       <%= f.text_field a %><br>

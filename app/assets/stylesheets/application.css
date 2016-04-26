@@ -6,12 +6,14 @@ Version: 1
 Description: Base theme for Wordpress
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: one-column, two-columns
 Theme URI:
 */
 
 /* =WordPress Core
 -------------------------------------------------------------- */
+
+/* put in before my knowledge of the assest pipeline needs to be rethought and refactor */
+
 *{
   margin:0;
   padding:0;
@@ -628,6 +630,8 @@ a img.aligncenter {
 .map-holder {
     margin: 100px -25px 124px;
 }
+
+/* Donster */
 
 .error {
   color: red;
