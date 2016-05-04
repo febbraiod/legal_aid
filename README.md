@@ -16,21 +16,32 @@ SOL pop ups?
 
 link up a way to access files (pdf)
 
-mileage - user by day for tax
-
 way to see how much of a retainer has been paid(hide from all but admin)
 
 keep track of tolling of expenses by case.(by receipts with scans)
 
-billing entries - i.e. 5min phone_cool...1.5 hours appearsence ect ect?
+billing entries - i.e. 5min phone_call...1.5 hours appearsence ect ect?
 
-Think about css?(edit responsive css as well) => fine for now, but would need polishing for production.
-
+Think about css?(edit responsive css as well) => fine for now, but would need polishing for production. Make errors smaller. maybe use a bootstrap setup for columns
 
 add search for cases(index and caption) and clients(someday)
 add fee schedule calc(someday)
 
 templates
+
+
+for jquery assessment
+
+REQUIREMENTS
+Must render one show page and one index page via jQuery and an Active Model Serialization JSON Backend.
+
+Must use your Rails api to create a resource and render the response without a page refresh.
+
+The rails API must reveal at least one has-many relationship in the JSON that is then rendered to the page.
+
+Must have at least one link that loads, or updates a resource without reloading the page - NOTES!
+
+Must translate the JSON responses into Javascript Model Objects. The Model Objects must have at least one method on the prototype. Formatters work really well for this.
 
 
 
@@ -49,8 +60,9 @@ As a regular user
   -make a note as bernie for admin to delete
   -show clients show page
   -show nested routes
-  -show forms for new
-  -show some stuff you can't do unless a admin
+  -show forms for new (client, case)
+  -make a new case with a new client
+  -show some stuff you can't do unless a admin - edit case not assign to
 
 As admin
   -show approval process

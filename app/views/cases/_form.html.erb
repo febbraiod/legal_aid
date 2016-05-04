@@ -1,12 +1,6 @@
 <%= form_for @case do |f| %>
   <div class="form_col-1">
 
-    <%=f.label :first_name%><br>
-    <%=f.text_field :first_name%>
-
-    <%=f.label :last_name%><br>
-    <%=f.text_field :last_name%>
-
     <% @attributes.each do |a| %>
       <% if a == :open %>
         <%= f.label a %><br>
