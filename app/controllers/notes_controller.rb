@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @notes = Note.where(case_id: (params['case_id'].to_i))
+    @notes = Note.where(case_id: (params['case_id'].to_i)).reverse
     render json: @notes
   end
 
@@ -42,7 +42,7 @@ class NotesController < ApplicationController
       flash[:message] = "You note has been deleted"
       redirect_to case_path(@case)
     else
-      flash[:message] = "Non admin: You may only delete your own notes."
+      flash[:message] = "Non admin: You may only delete your own notes"
       redirect_to case_path(@note.case)
     end
 

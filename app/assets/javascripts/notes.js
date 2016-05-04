@@ -12,10 +12,11 @@ Note.prototype.userFormat = function(){
 
 function getNotes(case_id){
   $.get('/notes', {case_id: case_id}).done(function(data){
+      $('#getNotes').hide();
       $('#case_notes').css('display', 'block');
       var notes = data.notes;
       for(var i = 0; i < notes.length ; i++){
-        var note = new Note(notes[i].id, notes[i].content, notes[i].user, notes[i].created_at);
+        var note = new Note(notes[i].id, notes[i].content, notes[i].user, new Date(notes[i].created_at));
         renderNote(note);  
       }
   });
@@ -28,10 +29,7 @@ function renderNote(note){
   $('#case_notes').append(noteString);
   $('#case_notes').append(edit_button);
 
-
 }
-
-
 
 function setBinders(){
   $('#getNotes').on('click', function(){
