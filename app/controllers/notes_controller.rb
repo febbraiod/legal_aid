@@ -1,6 +1,11 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @notes = Note.where(case_id: (params['case_id'].to_i))
+    render json: @notes
+  end
+
   def create
     note = Note.new(note_params)
     if note.save

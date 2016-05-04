@@ -42,8 +42,7 @@ Must translate the JSON responses into Javascript Model Objects.
 The Model Objects must have at least one method on the prototype. 
 Formatters work really well for this.
 
-take a look at OO javascript again.
-formatter for dates?
+model objs would work well for cases too
 
 
 

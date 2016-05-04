@@ -49,7 +49,7 @@ a{
 a:hover{text-decoration:underline;}
 a:active{background-color:transparent;}
 input, textarea, select{
-  font:100% "museo_slab300", Arial, Helvetica, sans-serif;
+  font:100% Arial, Helvetica, sans-serif;
   vertical-align:middle;
   color:#414042;
 }
@@ -64,7 +64,7 @@ button, input{
 h1, h2, h3, h4, h5, h6, b, strong, th{font-weight:bold;}
 
 h1, h2, h3, h4, h5, h6{
-  font:100% "museo_slab300", Helvetica, Arial, sans-serif;
+  font:100% Helvetica, Arial, sans-serif;
   font-weight:normal;
 
 }
@@ -143,10 +143,6 @@ textarea:-ms-input-placeholder{color:#414042;}
 @font-face{
   font-family:'century_gothicbold';
   src:url('fonts/century_gothic_bold-webfont.eot');
-  src:url('fonts/century_gothic_bold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('fonts/century_gothic_bold-webfont.woff') format('woff'),
-    url('fonts/century_gothic_bold-webfont.ttf') format('truetype'),
-    url('fonts/century_gothic_bold-webfont.svg#century_gothicbold') format('svg');
   font-weight:normal;
   font-style:normal;
 }
@@ -637,6 +633,14 @@ a img.aligncenter {
   color: red;
 }
 
+#alert{
+  position:fixed;
+  top: 55px;
+  left: 60px;
+  z-index: 11;
+
+}
+
 #sign_in{
   position: fixed;
   left: 100px;
@@ -718,11 +722,7 @@ a img.aligncenter {
   width: 350px;
 }
 
-#alert{
-  position:fixed;
-  top: 55px;
-  left: 60px;
-  z-index: 11;
-
+#case_notes{
+  display: none;
 }
 
