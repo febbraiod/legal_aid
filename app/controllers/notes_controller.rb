@@ -36,7 +36,7 @@ class NotesController < ApplicationController
   def destroy
     @note = Note.find_by(id: params[:id])
     @case = @note.case
-    if policy(@note).destory?
+    if policy(@note).destroy?
        #tried using pundit here via authorize @note but kept getting error i couldnt debug.
       @note.delete
       flash[:message] = "You note has been deleted"
