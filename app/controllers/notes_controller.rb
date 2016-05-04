@@ -37,7 +37,7 @@ class NotesController < ApplicationController
       flash[:message] = "Your note has been deleted"
       redirect_to case_path(@case)
     else
-      flash[:message] = "Non admin: You may only delete your own notes."
+      flash[:message] = "Non admin: You may only delete your own notes"
       redirect_to case_path(@note.case)
     end
 

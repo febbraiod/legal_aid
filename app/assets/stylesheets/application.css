@@ -634,6 +634,7 @@ a img.aligncenter {
 /* Donster */
 
 .error {
+  font-size: 12px;
   color: red;
 }
 
