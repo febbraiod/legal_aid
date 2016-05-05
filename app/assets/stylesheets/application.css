@@ -49,7 +49,7 @@ a{
 a:hover{text-decoration:underline;}
 a:active{background-color:transparent;}
 input, textarea, select{
-  font:100% Arial, Helvetica, sans-serif;
+  font:100% Trebuchet MS, Helvetica, sans-serif;
   vertical-align:middle;
   color:#414042;
 }
@@ -64,7 +64,7 @@ button, input{
 h1, h2, h3, h4, h5, h6, b, strong, th{font-weight:bold;}
 
 h1, h2, h3, h4, h5, h6{
-  font:100% Helvetica, Arial, sans-serif;
+  font:100% Trebuchet MS, Helvetica, sans-serif;
   font-weight:normal;
 
 }
@@ -173,7 +173,7 @@ textarea:-ms-input-placeholder{color:#414042;}
   top:0;
   z-index:10;
   background:#faf8ee;
-  font:12px/16px "century_gothicbold", Arial, Helvetica, sans-serif;
+  font:12px/16px Helvetica, Trebuchet MS, sans-serif;
   letter-spacing:2px;
 }
 #nav ul{
@@ -211,7 +211,7 @@ textarea:-ms-input-placeholder{color:#414042;}
   position:fixed;
   right:58px;
   bottom:50px;
-  font:12px/16px "century_gothicbold", Arial, Helvetica, sans-serif;
+  font:12px/16px "century_gothicbold", Trebuchet MS, Helvetica, sans-serif;
   letter-spacing:2px;
   text-align:right;
   text-transform:uppercase;
@@ -271,7 +271,7 @@ textarea:-ms-input-placeholder{color:#414042;}
   text-transform:uppercase;
   text-align:center;
   letter-spacing:4px;
-  font:46px/61px "century_gothicbold", Arial, Helvetica, sans-serif;
+  font:46px/61px "century_gothicbold", Trebuchet MS, Helvetica, sans-serif;
 }
 .text-block{
   text-align:center;

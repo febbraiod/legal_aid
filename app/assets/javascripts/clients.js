@@ -44,6 +44,7 @@ function getClients(){
       }
       bindClients();
   });
+  $('#getClientCases').hide();
 }
 
 function renderClientSummary(client){
@@ -83,7 +84,6 @@ function getSingleClient(id){
       });
 }
 
-
 function renderClient(client){
   $('.col-2').html("");
   $('h1').html(client.first_name + " " + client.last_name + '<br>');
@@ -114,13 +114,28 @@ function renderClient(client){
   if(client.zip !== ""){
   $('#clients').append('<p>Zip: ' + client.zip + '</p><br>');
   }
-
+  $('#clients').append('<p><a href="clients/' + client.id + '/edit">Edit client info</a></p>');
+  $('#hide_on_show').hide();
+  $('#getClientCases').show();
+  $('#getClientCases').attr('data-id', client.id);
 }
 
 function clearDom(){
   $('#clients').html('');
 }
 
+function bindClientCases(){
+  $('#getClientCases').on('click', function(){
+    var id = (this).data('id');
+    getClientCases(id);
+  });
+}
+
+function getClientCases(id){
+  // ajax call to clients. need to set up custom serialier
+}
+
 $(function(){
   getClients();
+  bindClientCases();
 });

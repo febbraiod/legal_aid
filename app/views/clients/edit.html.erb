@@ -1,4 +1,7 @@
 <div class='forms'>
   <h1>Edit Client: <%=@client.fullname%></h1>
   <%= render 'form' %>
+  <br>
+  <br>
+  <p><%=link_to "Delete Client", client_path(@client), method: :delete%></p>
 </div>

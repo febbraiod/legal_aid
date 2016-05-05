@@ -8,7 +8,6 @@ for Jquery assessment:
 The rails API must reveal at least one has-many relationship in the 
 JSON that is then rendered to the page:
 
-add links for editing and deleting to show page
 list clients cases on button click on right of show page
 
 
