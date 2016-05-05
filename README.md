@@ -7,6 +7,14 @@ use bootstrap to fix columns?(will this over write my current css)
 
 owners and admins can delete notes => this is working but not with the authorize @record method. not sure why?
 
+sort cases by recent activity
+
+refactor! lots of controller and view stuff and be done in models! i.e. when joe showed me how to move the active case method to the cases model.
+
+think about making a partial for case objects.
+
+---> <render @case>
+
 
 maybe: 
 

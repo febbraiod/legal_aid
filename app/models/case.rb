@@ -26,4 +26,8 @@ class Case < ActiveRecord::Base
   def self.popular_county
     group(:county).count(:county).max_by {|county, num| num}
   end
+
+  def self.case_with_most_notes
+    Case.all.sort {|a, b| b.notes.count <=> a.notes.count }.first.caption
+  end
 end
