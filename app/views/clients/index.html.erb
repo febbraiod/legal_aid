@@ -7,15 +7,17 @@
   <%end%>
   
   <h1>Client List</h1>
+  <p id='getClientCases'><button>See client's cases</button></p>
+  <br>
+  <div id='clients'>
 
-  <% @clients.each do |client| %>
-    <br>
-    <p><%= link_to client.fullname, client_path(client) %></p>
-    <p><%= client.phones %></p>
-    <p><%= client.email %></p>
-  <% end %>
+  </div>
 </div>
 
+
 <div class='col-2'>
-  <p><%=link_to "Add New Client", new_client_path %></p>
+  <div class='client_cases'>
+    <!-- use this to lists cases by client with json -->
+  </div>
+  <p id='hide_on_show'><%=link_to "Add New Client", new_client_path %></p>
 </div>

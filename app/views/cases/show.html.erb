@@ -40,20 +40,17 @@
 </div>
 
 <div class='col-2'>
-  <div class = "case_notes">
+  <div id = "case_notes">
     <h4>Case Notes:</h4>
     <br>
-    <% @case_notes.each do |note| %>
-      <p><%=note.content %></p>
-      <p>- <%=note.user.full_name %><br><br><%= note.created_at.to_formatted_s(:long_ordinal) %></p>
-      <p><%=link_to 'edit your note', edit_note_path(note)%> &nbsp; &nbsp; &nbsp; <%=link_to 'delete', note_path(note), method: :delete%></p>
-      <br>
-    <% end %>
+    <br>
   </div>
+  <button id='getNotes' data-id=<%=@case.id%>>Get Case Notes</button>
 </div>
 
   <!--the new note form should be the last thing on the note column-->
 <div class='col-3'>
+
   <h5>Add Note:</h5>
   <%=form_for @newnote do |f|%>
 
