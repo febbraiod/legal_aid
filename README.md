@@ -9,26 +9,16 @@ jQuery and an Active Model Serialization JSON Backend:
 
 do clients index and show...cases are too complex
 
+The rails API must reveal at least one has-many relationship in the 
+JSON that is then rendered to the page:
+
+list clients cases on button click on right of show page.
+
 
 Must use your Rails api to create a resource 
 and render the response without a page refresh:
 
 this is just an ajax post request to make a new note then add it to the list
-
-
-The rails API must reveal at least one has-many relationship in the 
-JSON that is then rendered to the page:
-
-look at the serializer lesson's reguarding authors and posts.
-might need a page for user's notes to show the uses of an 
-explicit serilaizer which is what i think the assessment requires
-
-
-Must translate the JSON responses into Javascript Model Objects. 
-The Model Objects must have at least one method on the prototype. 
-Formatters work really well for this.
-
-did already for notes do the same for clients
 
 
 

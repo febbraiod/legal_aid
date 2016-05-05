@@ -13,7 +13,7 @@ function Client(id, first_name, last_name, company_name, home_phone, work_phone,
   this.zip = zip;  
 }
 
-Note.prototype.clientFormat = function(){
+Client.prototype.clientFormat = function(){
   var fullName = this.first_name + " " + this.last_name;
   return fullName;
 };
@@ -34,14 +34,14 @@ function getClients(){
                                 clients[i].city,
                                 clients[i].state,
                                 clients[i].zip);
-        renderClient(client);
+        renderClientSummary(client);
       }
       bindClients();
   });
 }
 
-function renderClient(client){
-  $('#clients').append('<p><a href="clients/' + client.id + '" id ="show_client" data-id="' + client.id + '">' + client.first_name + " " + client.last_name + '</a></p>');
+function renderClientSummary(client){
+  $('#clients').append('<p><a href="clients/' + client.id + '" id ="show_client" data-id="' + client.id + '">' + client.clientFormat() + '</a></p>');
   var phones = phoneString(client);
   $('#clients').append('<p>' + phones + '</p>');
   $('#clients').append('<p>' + client.email + '</p><br>');
@@ -71,8 +71,58 @@ function bindClients(){
 }
 
 function showClient(id){
-  // ajax here
+
+  $.get('clients/' + id + '.json').done(function(data){
+      c = data.client;
+      var client = new Client(c.id, 
+                              c.first_name,
+                              c.last_name,
+                              c.company_name,
+                              c.home_phone,
+                              c.work_phone,
+                              c.cell_phone,
+                              c.email,
+                              c.address,
+                              c.city,
+                              c.state,
+                              c.zip);
+      renderClient(client);
+      });
 }
+
+function renderClient(client){
+  $('.col-2').html("");
+  $('h1').html(client.first_name + " " + client.last_name + '<br>');
+  if(client.company_name !== ""){
+  $('#clients').append('<p>Company: ' + client.company_name + '</p><br>');
+  }
+  if(client.home_phone !== ""){
+  $('#clients').append('<p>Home Phone: ' + client.home_phone + '</p><br>');
+  }
+  if(client.work_phone !== ""){
+  $('#clients').append('<p>Work Phone: ' + client.work_phone + '</p><br>');
+  }
+  if(client.cell_phone !== ""){
+  $('#clients').append('<p>Cell Phone: ' + client.cell_phone + '</p><br>');
+  }
+  if(client.email !== ""){
+  $('#clients').append('<p>Email: ' + client.email + '</p><br>');
+  }
+  if(client.address !== ""){
+  $('#clients').append('<p>Address: ' + client.address + '</p><br>');
+  }
+  if(client.city !== ""){
+  $('#clients').append('<p>City: ' + client.city + '</p><br>');
+  }
+  if(client.state !== ""){
+  $('#clients').append('<p>State: ' + client.state + '</p><br>');
+  }
+  if(client.zip !== ""){
+  $('#clients').append('<p>Zip: ' + client.zip + '</p><br>');
+  }
+
+}
+
 
 function clearDom(){
   $('#clients').html('');

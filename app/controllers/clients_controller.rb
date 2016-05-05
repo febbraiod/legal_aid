@@ -23,6 +23,10 @@ class ClientsController < ApplicationController
   def show
     @client = Client.find_by(id: params[:id])
     @attributes = @client.form_attributes
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @client }
+    end
   end
 
   def edit
