@@ -10,7 +10,6 @@ JSON that is then rendered to the page:
 
 list clients cases on button click on right of show page
 
-
 Must use your Rails api to create a resource 
 and render the response without a page refresh:
 
