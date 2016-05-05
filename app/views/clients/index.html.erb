@@ -7,7 +7,6 @@
   <%end%>
   
   <h1>Client List</h1>
-  <p id='getClientCases'><button>See client's cases</button></p>
   <br>
   <div id='clients'>
 
@@ -16,8 +15,9 @@
 
 
 <div class='col-2'>
-  <div class='client_cases'>
-    <!-- use this to lists cases by client with json -->
-  </div>
   <p id='hide_on_show'><%=link_to "Add New Client", new_client_path %></p>
+</div>
+
+<div id='client_cases'>
+  <h4></h4><br>
 </div>

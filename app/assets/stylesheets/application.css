@@ -439,32 +439,32 @@ textarea{
     font-size:75%;
   }
   h1{
-    font-size:24px;
+    font-size:22px;
     line-height:28px;
     margin:0 0 16px;
   }
   h2{
-    font-size:22px;
+    font-size:20px;
     line-height:26px;
     margin:0 0 18px;
   }
   h3{
-    font-size:20px;
+    font-size:18px;
     line-height:24px;
     margin:0 0 12px;
   }
   h4{
-    font-size:18px;
+    font-size:16px;
     line-height:22px;
     margin:0 0 10px;
   }
   h5{
-    font-size:16px;
+    font-size:14px;
     line-height:20px;
     margin:0 0 10px;
   }
   h6{
-    font-size:14px;
+    font-size:13px;
     line-height:18px;
     margin:0 0 10px;
   }
@@ -676,8 +676,8 @@ a img.aligncenter {
 
 .col-3 {
   position: relative;
-  bottom: 367px;
-  left: 50%;
+  bottom: 400px;
+  left: 52%;
   height: 100%;
   width: 30%;
 }
@@ -724,5 +724,10 @@ a img.aligncenter {
 
 #case_notes{
   display: none;
+}
+
+#client_cases{
+  position: relative;
+  top: 80px;
 }
 

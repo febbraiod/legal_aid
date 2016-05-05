@@ -14,6 +14,7 @@ class CasesController < ApplicationController
       @open_cases = Case.all.where(open: true)
       @closed_cases = Case.all.where(open: false)
     end
+    # refactor
   end
 
   def new

@@ -1,4 +1,4 @@
-function Client(id, first_name, last_name, company_name, home_phone, work_phone, cell_phone, email, address, city, state, zip){
+function Client(id, first_name, last_name, company_name, home_phone, work_phone, cell_phone, email, address, city, state, zip, cases){
   this.id = id;
   this.first_name = first_name;
   this.last_name = last_name;
@@ -10,10 +10,11 @@ function Client(id, first_name, last_name, company_name, home_phone, work_phone,
   this.address = address;
   this.city = city;
   this.state = state;
-  this.zip = zip;  
+  this.zip = zip; 
+  this.cases = cases;
 }
 
-Client.prototype.clientFormat = function(){
+Client.prototype.fullName = function(){
   var fullName = this.first_name + " " + this.last_name;
   return fullName;
 };
@@ -30,7 +31,8 @@ function makeClient(c){
                           c.address,
                           c.city,
                           c.state,
-                          c.zip);
+                          c.zip,
+                          c.cases);
   return client;
 }
 
@@ -44,11 +46,10 @@ function getClients(){
       }
       bindClients();
   });
-  $('#getClientCases').hide();
 }
 
 function renderClientSummary(client){
-  $('#clients').append('<p><a href="clients/' + client.id + '" id ="show_client" data-id="' + client.id + '">' + client.clientFormat() + '</a></p>');
+  $('#clients').append('<p><a href="clients/' + client.id + '" id ="show_client" data-id="' + client.id + '">' + client.fullName() + '</a></p>');
   $('#clients').append('<p>' + phoneString(client) + '</p>');
   $('#clients').append('<p>' + client.email + '</p><br>');
 }
@@ -80,13 +81,16 @@ function getSingleClient(id){
   $.get('clients/' + id + '.json').done(function(data){
       c = data.client;
       var client = makeClient(c);
+      debugger
+      $('#client_cases').show();
       renderClient(client);
+      getClientCases(client);
       });
 }
 
 function renderClient(client){
   $('.col-2').html("");
-  $('h1').html(client.first_name + " " + client.last_name + '<br>');
+  $('h1').html(client.fullName() + '<br>');
   if(client.company_name !== ""){
   $('#clients').append('<p>Company: ' + client.company_name + '</p><br>');
   }
@@ -116,26 +120,23 @@ function renderClient(client){
   }
   $('#clients').append('<p><a href="clients/' + client.id + '/edit">Edit client info</a></p>');
   $('#hide_on_show').hide();
-  $('#getClientCases').show();
-  $('#getClientCases').attr('data-id', client.id);
+  $('#seeClientCases').show();
 }
 
 function clearDom(){
   $('#clients').html('');
 }
 
-function bindClientCases(){
-  $('#getClientCases').on('click', function(){
-    var id = (this).data('id');
-    getClientCases(id);
-  });
-}
-
-function getClientCases(id){
-  // ajax call to clients. need to set up custom serialier
+function getClientCases(client){
+  $('h4').append(client.fullName() +"'s cases");
+  arrayOfCases = client.cases;
+  for(var i = 0; i < arrayOfCases.length ;i++){
+    var a = arrayOfCases[i];
+    $('#client_cases').append('<p><a href="cases/'+ a.id + '">' + a.caption + '</a></p>');
+  }
 }
 
 $(function(){
   getClients();
-  bindClientCases();
+  $('#client_cases').hide();
 });

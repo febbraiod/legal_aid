@@ -28,6 +28,6 @@ class Case < ActiveRecord::Base
   end
 
   def self.case_with_most_notes
-    Case.all.sort {|a, b| b.notes.count <=> a.notes.count }.first.caption
+    Case.all.sort_by {|a| a.notes.count }.last
   end
 end

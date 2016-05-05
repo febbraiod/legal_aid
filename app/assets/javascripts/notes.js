@@ -33,13 +33,31 @@ function renderNote(note){
 
 function setBinders(){
   $('#getNotes').on('click', function(){
+    $('h4').show();
     var case_id = $(this).data('id');
     getNotes(case_id);
   });
 }
 
+function hiJackForm(){
+  $('form').submit(function(e){
+    e.preventDefault();
+    var noteValues = $(this).serialize();
+    $.post('/notes', noteValues).done(function(resp){
+      var note = new Note(resp.note.id, resp.note.content, resp.note.user, new Date(resp.note.created_at));
+      var noteString = "<br><p>"+ note.content + "</p>" +"<p>- " + 
+      note.userFormat() + "<br><br>" + note.date + "</p>";
+      var edit_button = '<p><a href="/notes/' + note.id + '/edit">edit your note</a></p>';
+      $('#case_notes').prepend(edit_button);
+      $('#case_notes').prepend(noteString);
+    });
+  });
+}
+
 $(function(){
   setBinders();
+  hiJackForm();
+  $('h4').hide();
 });
 
 

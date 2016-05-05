@@ -5,11 +5,6 @@ A web app for law firms built with Ruby on Rails
 for Jquery assessment:
 
 
-The rails API must reveal at least one has-many relationship in the 
-JSON that is then rendered to the page:
-
-list clients cases on button click on right of show page
-
 Must use your Rails api to create a resource 
 and render the response without a page refresh:
 
@@ -19,6 +14,7 @@ this is just an ajax post request to make a new note then add it to the list
 
 someday:
 
+add new case from client page let form select client automatically.(maybe make new form where the client i is hidden, and you only enter case info)
 
 keep track of tolling of expenses by case.(by receipts with scans)
 
