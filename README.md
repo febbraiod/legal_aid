@@ -4,15 +4,12 @@ A web app for law firms built with Ruby on Rails
 
 for Jquery assessment:
 
-Must render one show page and one index page via 
-jQuery and an Active Model Serialization JSON Backend:
-
-do clients index and show...cases are too complex
 
 The rails API must reveal at least one has-many relationship in the 
 JSON that is then rendered to the page:
 
-list clients cases on button click on right of show page.
+add links for editing and deleting to show page
+list clients cases on button click on right of show page
 
 
 Must use your Rails api to create a resource 
@@ -23,15 +20,14 @@ this is just an ajax post request to make a new note then add it to the list
 
 
 
-can i use these to fulfill any requirements:
+
+someday:
+
 
 keep track of tolling of expenses by case.(by receipts with scans)
 
 way to see how much of a retainer has been paid(hide from all but admin)
 this just might need to be a link for each case that only admins can click to access
-
-
-someday:
 
 billing entries - i.e. 5min phone_call...1.5 hours appearsence ect ect?
 
@@ -44,7 +40,6 @@ use bootstrap to fix columns?(will this over write my current css?)
 owners and admins can delete notes => 
 this is working but not with the authorize @record method. 
 not sure why?
-
 
 
 maybe: 

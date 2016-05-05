@@ -18,22 +18,28 @@ Client.prototype.clientFormat = function(){
   return fullName;
 };
 
+function makeClient(c){
+  var client = new Client(c.id, 
+                          c.first_name,
+                          c.last_name,
+                          c.company_name,
+                          c.home_phone,
+                          c.work_phone,
+                          c.cell_phone,
+                          c.email,
+                          c.address,
+                          c.city,
+                          c.state,
+                          c.zip);
+  return client;
+}
+
 function getClients(){
   $.get('/clients.json').done(function(data){
       var clients = data.clients;
       for(var i = 0; i < clients.length ; i++){
-        var client = new Client(clients[i].id, 
-                                clients[i].first_name,
-                                clients[i].last_name,
-                                clients[i].company_name,
-                                clients[i].home_phone,
-                                clients[i].work_phone,
-                                clients[i].cell_phone,
-                                clients[i].email,
-                                clients[i].address,
-                                clients[i].city,
-                                clients[i].state,
-                                clients[i].zip);
+        var c = clients[i];
+        var client = makeClient(c);
         renderClientSummary(client);
       }
       bindClients();
@@ -42,8 +48,7 @@ function getClients(){
 
 function renderClientSummary(client){
   $('#clients').append('<p><a href="clients/' + client.id + '" id ="show_client" data-id="' + client.id + '">' + client.clientFormat() + '</a></p>');
-  var phones = phoneString(client);
-  $('#clients').append('<p>' + phones + '</p>');
+  $('#clients').append('<p>' + phoneString(client) + '</p>');
   $('#clients').append('<p>' + client.email + '</p><br>');
 }
 
@@ -66,29 +71,18 @@ function bindClients(){
         e.preventDefault();
         var id = $(this).data('id');
         clearDom();
-        showClient(id);
+        getSingleClient(id);
   });
 }
 
-function showClient(id){
-
+function getSingleClient(id){
   $.get('clients/' + id + '.json').done(function(data){
       c = data.client;
-      var client = new Client(c.id, 
-                              c.first_name,
-                              c.last_name,
-                              c.company_name,
-                              c.home_phone,
-                              c.work_phone,
-                              c.cell_phone,
-                              c.email,
-                              c.address,
-                              c.city,
-                              c.state,
-                              c.zip);
+      var client = makeClient(c);
       renderClient(client);
       });
 }
+
 
 function renderClient(client){
   $('.col-2').html("");
@@ -123,12 +117,9 @@ function renderClient(client){
 
 }
 
-
 function clearDom(){
   $('#clients').html('');
 }
-
-
 
 $(function(){
   getClients();
