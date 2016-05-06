@@ -22,6 +22,14 @@ class User < ActiveRecord::Base
   def full_name
     self.first_name + " " + self.last_name
   end
+
+  def open_cases
+    self.cases.where(open: true)
+  end
+
+  def closed_cases
+    self.cases.where(open: false)
+  end
   
   #overriding devise in order to implement admin authorization
   def active_for_authentication? 

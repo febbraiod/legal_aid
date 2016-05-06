@@ -44,7 +44,6 @@ function getClients(){
         var client = makeClient(c);
         renderClientSummary(client);
       }
-      bindClients();
   });
 }
 
@@ -69,7 +68,7 @@ function phoneString(client){
  }
 
 function bindClients(){
-  $('#show_client').on('click', function(e){
+  $('body').on('click','#show_client', function(e){
         e.preventDefault();
         var id = $(this).data('id');
         clearDom();
@@ -81,7 +80,6 @@ function getSingleClient(id){
   $.get('clients/' + id + '.json').done(function(data){
       c = data.client;
       var client = makeClient(c);
-      debugger
       $('#client_cases').show();
       renderClient(client);
       getClientCases(client);
@@ -128,7 +126,7 @@ function clearDom(){
 }
 
 function getClientCases(client){
-  $('h4').append(client.fullName() +"'s cases");
+  $('h4').html(client.fullName() +"'s cases").show();
   arrayOfCases = client.cases;
   for(var i = 0; i < arrayOfCases.length ;i++){
     var a = arrayOfCases[i];
@@ -139,4 +137,5 @@ function getClientCases(client){
 $(function(){
   getClients();
   $('#client_cases').hide();
+  bindClients();
 });

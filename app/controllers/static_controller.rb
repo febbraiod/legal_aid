@@ -15,7 +15,6 @@ class StaticController < ApplicationController
     @pop_county = pop_county_arr[0]
     @cases_in_pop_county = pop_county_arr[1]
     @active_case = Case.case_with_most_notes
-    # refactor most of this to model methods!
   end
 
 end

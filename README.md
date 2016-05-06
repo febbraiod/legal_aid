@@ -4,13 +4,11 @@ A web app for law firms built with Ruby on Rails
 
 for Jquery assessment:
 
+finished!
 
-Must use your Rails api to create a resource 
-and render the response without a page refresh:
+refactor
 
-this is just an ajax post request to make a new note then add it to the list
-
-
+add a model method that will allow a display on user page that says 'active cases assigned: 50'.
 
 someday:
 

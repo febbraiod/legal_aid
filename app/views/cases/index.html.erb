@@ -6,7 +6,9 @@
 <%else%>
   <h3>Firm Case List</h1>
 <%end%>
-<br>
+
+<h5><%= @client.full_name + "'s cases:"if @client%></h5><br>
+<h5><%= @user.full_name + "'s assigned cases:"if @user%></h5><br>
 
 <h5>Active Cases</h2>
 <ul>

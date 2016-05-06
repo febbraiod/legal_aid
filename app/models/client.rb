@@ -27,4 +27,12 @@ class Client < ActiveRecord::Base
     self.first_name + " " + self.last_name
   end
 
+  def open_cases
+    self.cases.where(open: true)
+  end
+
+  def closed_cases
+    self.cases.where(open: false)
+  end
+
 end

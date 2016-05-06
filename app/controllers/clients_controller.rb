@@ -39,6 +39,7 @@ class ClientsController < ApplicationController
   end
 
   def update
+    binding.pry
     @client = Client.find_by(id: params[:id])
     if policy(@client).update?
     @client.update(client_params)

@@ -4,17 +4,16 @@ class CasesController < ApplicationController
   def index
     if params[:client_id]
       @client = Client.find_by(id: params[:client_id])
-      @open_cases = @client.cases.where(open: true)
-      @closed_cases = @client.cases.where(open: false)
+      @open_cases = @client.open_cases
+      @closed_cases = @client.closed_cases
     elsif params[:user_id]
       @user = User.find_by(id: params[:user_id])
-      @open_cases = @user.cases.where(open: true)
-      @closed_cases = @user.cases.where(open: false)
+      @open_cases = @user.open_cases
+      @closed_cases = @user.closed_cases
     else
-      @open_cases = Case.all.where(open: true)
-      @closed_cases = Case.all.where(open: false)
+      @open_cases = Case.open_cases
+      @closed_cases = Case.closed_cases
     end
-    # refactor
   end
 
   def new
@@ -65,10 +64,8 @@ class CasesController < ApplicationController
   def show
     @case = Case.find_by(id: params[:id])
     @attributes = @case.form_attributes.sort
-
-    @lawyers = @case.workers.select {|u| u if u.role == "lawyer" || u.role == "admin"}
-    @paras = @case.workers.select {|u| u if u.role == "para"}
-  
+    @lawyers = @case.attorneys
+    @paras = @case.paralegals
     @case_notes = @case.notes.reverse
     @newnote = Note.new()
     @newnote.user = current_user

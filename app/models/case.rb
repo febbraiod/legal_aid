@@ -23,11 +23,27 @@ class Case < ActiveRecord::Base
     end
   end
 
+  def attorneys
+    workers.select {|u| u if u.role == "lawyer" || u.role == "admin"}
+  end
+
+  def paralegals
+    workers.select {|u| u if u.role == "para"}
+  end
+
+  def self.open_cases
+    where(open: true)
+  end
+
+  def self.closed_cases
+    where(open: false)
+  end
+
   def self.popular_county
     group(:county).count(:county).max_by {|county, num| num}
   end
 
   def self.case_with_most_notes
-    Case.all.sort_by {|a| a.notes.count }.last
+    self.all.sort_by {|a| a.notes.count }.last
   end
 end

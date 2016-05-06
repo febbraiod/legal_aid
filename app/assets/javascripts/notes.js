@@ -40,7 +40,7 @@ function setBinders(){
 }
 
 function hiJackForm(){
-  $('form').submit(function(e){
+  $('noteform').submit(function(e){
     e.preventDefault();
     var noteValues = $(this).serialize();
     $.post('/notes', noteValues).done(function(resp){
@@ -59,12 +59,3 @@ $(function(){
   hiJackForm();
   $('h4').hide();
 });
-
-
-    // <br>
-    // <% @case_notes.each do |note| %>
-    //   <p><%=note.content %></p>
-    //   <p>- <%=note.user.full_name %><br><br><%= note.created_at.to_formatted_s(:long_ordinal) %></p>
-    //   <p><%=link_to 'edit your note', edit_note_path(note)%> &nbsp; &nbsp; &nbsp; <%=link_to 'delete', note_path(note), method: :delete%></p>
-    //   <br>
-    // <% end %>
