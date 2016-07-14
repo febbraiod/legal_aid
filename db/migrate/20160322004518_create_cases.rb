@@ -5,7 +5,7 @@ class CreateCases < ActiveRecord::Migration
       t.string :index_num
       t.string :county
       t.text :caption
-      t.boolean :open default: true
+      t.boolean :open, default: true
 
       t.timestamps null: false
     end
