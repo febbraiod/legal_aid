@@ -1,6 +1,6 @@
 <div class = 'col-1'>
   <h2><%=@user.full_name%></h2>
   <p>Approval status: <%=@user.approved%></p>
-  <p><%= "Cell: " + @user.cell_phone%></p>
+  <p><%= "Cell: " + @user.cell_phone if @user.cell_phone%></p>
   <p><%= link_to "User Cases", user_cases_path(@user)%></p>
 </div>

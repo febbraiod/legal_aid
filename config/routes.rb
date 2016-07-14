@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root 'static#home'
   
   get '/about' => 'static#about'
+
+  get '/location' => 'static#location'
   
   get '/stats' => 'static#stats'
   

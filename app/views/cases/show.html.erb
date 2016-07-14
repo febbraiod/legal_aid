@@ -9,16 +9,26 @@
 
   <h1>Case Info:</h1>
   <br>
-    <% @attributes.each do |a| %>
-      <% unless @case.send(a.to_s).blank? %>
-        <%if a.to_s == "client_id"%>
-          <p>Client: <%=link_to (Client.find(@case.send(a.to_s)).full_name), client_cases_path(@case.client)%></p>
-        <%else%>
-          <p><%=a.to_s.split("_").join(" ").titleize%>: <%=@case.send(a.to_s)%></p>
-        <%end%>
-      <%end%>
-    <%end%>
+  <div id='attrs'> <!-- FIX THIS!!!! -->
+
+    <p>Client: <%=link_to (Client.find(@case.send("client_id")).full_name), client_cases_path(@case.client)%></p>
+    <p>Index No.: <%=@case.index_num%></p>
+    <p>County: <%=@case.county%></p>
+    <p>Caption: <%=@case.caption%></p>
+    <p>Case Status: 
+      <%if @case.open == true%>
+        Open
+       <%else%>
+        Closed 
+      <%end%></p>
+    <p>Created: <%=@case.created_at.to_formatted_s(:long)[0...-6]%></p>
+    <p>Last Update: <%=@case.updated_at.to_formatted_s(:long)[0...-6]%></p>
+    <p>Exposure: <%=@case.exposure%></p>
+
   <br>
+  </div>
+
+  
 
   <h5>Attorney's Assigned:</h5>
   <ul>
@@ -35,21 +45,21 @@
   </ul>
   <br>
   <p><%=link_to "Edit Case Info", edit_case_path(@case)%></p>
+ <!--  <p><button id='next_case' data-id=<%=@case.id + 1%>>See next case</button></p> -->
 
 </div>
 
 <div class='col-2'>
-  <h4>Case Notes:</h4>
-  <div id = "case_notes">
+  <h5>Case Notes:</h5>
+  <div id = "case_notes" style="margin-left: 5px; padding: 25px; border-left: solid 1px;">
     <br>
   </div>
   <button id='getNotes' data-id=<%=@case.id%>>Get Case Notes</button>
 </div>
 
-<div class='col-3'>
 
+  <%=form_for @newnote do |f|%>
   <h5>Add Note:</h5>
-  <%=form_for @newnote, {id: 'noteform'} do |f|%>
 
     <%= f.label :content%>
     <%= f.text_area :content%><br>
@@ -58,5 +68,5 @@
     <%= f.submit%>
 
   <%end%>
-</div>
+
   

@@ -11,11 +11,11 @@
     <th class = 'user_head'>Approved?</th> 
     <th class = 'user_head'>Edit</th>
   </tr>
-  <%@users.each do |user|%>
+  <%@users.each do |user| %>
     <tr>
-        <td><%= link_to user.full_name, user_path(user)%></td>
-        <td><%= user.approved%></td>
-        <td><%= link_to "Edit or Remove", edit_user_path(user)%></td>
+        <td><%= link_to user.full_name, user_path(user) unless user.full_name == 'Don Febbraio'%></td>
+        <td><%= user.approved unless user.full_name == 'Don Febbraio'%></td>
+        <td><%= link_to "Edit or Remove", edit_user_path(user) unless user.full_name == 'Don Febbraio'%></td>
     </tr>
   <%end%>
 </table>

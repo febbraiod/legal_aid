@@ -1,20 +1,39 @@
 <%= form_for @case do |f| %>
   <div class="form_col-1">
 
-    <% @attributes.each do |a| %>
-      <% if a == :open %>
-        <%= f.label a %><br>
-        <%= f.check_box a %>
-      <% elsif a == :client_id%>
-        <!-- do nothing -->
-      <% else %>
-      <%= f.label a %><br>
-      <%= f.text_field a %>
+      <%= f.label :index_num %><br>
+      <%= f.text_field :index_num %>
       <br>
-      <% end %>
-    <% end %>
+
+      <%= f.label :county %><br>
+      <%= f.text_field :county %>
+      <br>
+
+      <%= f.label :caption %><br>
+      <%= f.text_area :caption %>
+      <br>
+
+      <%= f.label :exposure %><br>
+      <%= f.number_field :exposure %>
+      <br>
+
+      <%= f.label :open %>
+      <%= f.check_box :open %><br>
+
+      <br>
+<!-- 
+    t.integer  "client_id"
+    t.string   "index_num"
+    t.string   "county"
+    t.text     "caption"
+    t.boolean  "open",       default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "exposure" -->
+
+
     <br>
-    <p>Client:</p>
+    <p>Select Client:</p>
     <%= f.collection_select :client_id, Client.all, :id, :full_name, include_blank: true %>
   </div>
 

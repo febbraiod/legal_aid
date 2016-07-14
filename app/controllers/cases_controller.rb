@@ -19,7 +19,6 @@ class CasesController < ApplicationController
   def new
     @case = Case.new
     @case.build_client
-    @attributes = @case.form_attributes
   end
 
   def create
@@ -27,7 +26,7 @@ class CasesController < ApplicationController
       @case = Case.new(case_params)
     else
       @case = Case.new(case_params) 
-      @case.client = Client.find_by(case_params[:client_id])
+      @case.client = Client.find_by(id: case_params[:client_id])
     end
 
     if @case.save
@@ -70,6 +69,10 @@ class CasesController < ApplicationController
     @newnote = Note.new()
     @newnote.user = current_user
     @newnote.case = @case
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @case }
+    end
   end
 
   def destroy

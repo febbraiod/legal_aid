@@ -1,5 +1,4 @@
 /*
-Theme Name: FINSTA
 Author: Anonymous
 Author URI:
 Version: 1
@@ -12,7 +11,15 @@ Theme URI:
 /* =WordPress Core
 -------------------------------------------------------------- */
 
-/* put in before my knowledge of the assest pipeline needs to be rethought and refactor */
+/* put in before my knowledge of the assest pipeline needs to be rethought and refactored */
+
+/* ...
+*= require static
+*= require_self
+*/
+
+
+
 
 *{
   margin:0;
@@ -49,7 +56,7 @@ a{
 a:hover{text-decoration:underline;}
 a:active{background-color:transparent;}
 input, textarea, select{
-  font:100% Trebuchet MS, Helvetica, sans-serif;
+  font:100% "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   vertical-align:middle;
   color:#414042;
 }
@@ -64,7 +71,7 @@ button, input{
 h1, h2, h3, h4, h5, h6, b, strong, th{font-weight:bold;}
 
 h1, h2, h3, h4, h5, h6{
-  font:100% Trebuchet MS, Helvetica, sans-serif;
+  font:100% "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   font-weight:normal;
 
 }
@@ -173,7 +180,7 @@ textarea:-ms-input-placeholder{color:#414042;}
   top:0;
   z-index:10;
   background:#faf8ee;
-  font:12px/16px Helvetica, Trebuchet MS, sans-serif;
+  font:12px/16px "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   letter-spacing:2px;
 }
 #nav ul{
@@ -211,7 +218,7 @@ textarea:-ms-input-placeholder{color:#414042;}
   position:fixed;
   right:58px;
   bottom:50px;
-  font:12px/16px "century_gothicbold", Trebuchet MS, Helvetica, sans-serif;
+  font:12px/16px "century_gothicbold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   letter-spacing:2px;
   text-align:right;
   text-transform:uppercase;
@@ -233,6 +240,7 @@ textarea:-ms-input-placeholder{color:#414042;}
   height: 100%;
   width: 100%;
 }
+
 .bg img {
   width: 100%;
   height: auto;
@@ -271,7 +279,7 @@ textarea:-ms-input-placeholder{color:#414042;}
   text-transform:uppercase;
   text-align:center;
   letter-spacing:4px;
-  font:46px/61px "century_gothicbold", Trebuchet MS, Helvetica, sans-serif;
+  font:46px/61px "century_gothicbold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 }
 .text-block{
   text-align:center;
@@ -652,9 +660,10 @@ a img.aligncenter {
 .forms {
   position: relative;
   left: 115px;
-  top: 40px;
+  top: 80px;
   width: 500px;
   height: 100%;
+  line-height: 1.5em;
 }
 
 .col-1 {
@@ -720,6 +729,13 @@ a img.aligncenter {
 
 #users_table{
   width: 350px;
+}
+
+#new_note{
+  position: fixed;
+  top:100px;
+  right:380px;
+  width: 320px;
 }
 
 #case_notes{

@@ -7,9 +7,9 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = Note.new(note_params)
-    if @note.save
-      render json: @note, status: 201
+    note = Note.new(note_params)
+    if note.save
+      render json: note, status: 201
     else
       flash[:alert] = "Invalid Note"
       redirect_to case_path(note.case)

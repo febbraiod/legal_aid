@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require notes
 //= require clients
+//= require cases

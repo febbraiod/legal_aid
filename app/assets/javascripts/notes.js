@@ -25,7 +25,7 @@ function getNotes(case_id){
 function renderNote(note){
   var noteString = "<p>"+ note.content + "</p>" +"<p>- " + 
   note.userFormat() + "<br><br>" + note.date + "</p>";
-  var edit_button = '<p><a href="/notes/' + note.id + '/edit">edit your note</a></p>';
+  var edit_button = '<p><a href="/notes/' + note.id + '/edit">edit your note</a></p><br>';
   $('#case_notes').append(noteString);
   $('#case_notes').append(edit_button);
 
@@ -40,7 +40,7 @@ function setBinders(){
 }
 
 function hiJackForm(){
-  $('noteform').submit(function(e){
+  $('#new_note').submit(function(e){
     e.preventDefault();
     var noteValues = $(this).serialize();
     $.post('/notes', noteValues).done(function(resp){

@@ -3,19 +3,19 @@
 
   <h2>Firm Statistics</h2><br>
 
-  <h5>Your most valuable client is:</h5><br>
+  <h5><b>Your most valuable client is:</b></h5><br>
 
-  <p><%= @most_val.fullname %></p>
+  <%= render partial: "/clients/client", locals: { client: @most_val } %>
 
   <p>with an exposure of: <%= @sum_exposure %> dollars</p><br>
 
-  <h5>The majority the firm's cases are venued in:</h5><br>
+  <h5><b>The majority the firm's cases are venued in:</b></h5><br>
 
   <p><%=@pop_county%> County with <%=@cases_in_pop_county%> cases.</p><br>
 
-  <h5>Case with most activity:</h5><br>
+  <h5><b>Case with most activity:</b></h5><br>
 
-  <p>Caption: <%=@active_case.caption%></p>
+  <%= render partial: "/cases/firm_case", locals: { firm_case: @most_active_case} %>
 
 </div>
   <!-- eventually uses partials here -->
