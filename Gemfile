@@ -5,6 +5,8 @@ gem 'jquery-turbolinks'
 gem 'rails', '4.2.5.1'
 # Use postgres as the database for Active Record
 gem 'pg'
+# for better log entries in heroku
+gem 'rails_12factor'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
