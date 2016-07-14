@@ -1,18 +1,15 @@
 class UserPolicy < ApplicationPolicy
 
   def show?
-    # @user == @record || @user.admin?
-    true
+    @user == @record || @user.admin?
   end
 
   def edit?
-    # @user.admin?
-    true
+    @user.admin?
   end
 
   def update?
-    # user.admin?
-    true
+    user.admin?
   end
 
   def destroy?
@@ -20,8 +17,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def unapproved?
-    # user.admin?
-    true
+    user.admin?
   end
 
 
