@@ -5,15 +5,15 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    @user.admin?
+    @user.superadmin?
   end
 
   def update?
-    user.admin?
+    user.superadmin?
   end
 
   def destroy?
-    user.admin?
+    user.superadmin?
   end
 
   def unapproved?

@@ -62,7 +62,7 @@ function phoneString(client){
       phone_numbers += client.work_phone + '(w) | ';
     }
     if(client.cell_phone !== ""){
-      phone_numbers += client.work_phone + '(c) |';
+      phone_numbers += client.cell_phone + '(c) |';
     }
     return phone_numbers.substring(0, phone_numbers.length - 2);
  }

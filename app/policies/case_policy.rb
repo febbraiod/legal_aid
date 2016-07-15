@@ -13,7 +13,7 @@ class CasePolicy < ApplicationPolicy
   end
 
   def destroy?
-    @user.admin?
+    @user.superadmin?
   end
 
 

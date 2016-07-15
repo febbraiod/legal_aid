@@ -5,15 +5,15 @@ class NotePolicy < ApplicationPolicy
   end
 
   def edit?
-    @user.admin? || record.user == @user
+    @user.superadmin? || record.user == @user
   end
 
   def update?
-    @user.admin? || record.user == @user
+    @user.superadmin? || record.user == @user
   end
 
   def destroy?
-    @user.admin? || record.user == @user
+    @user.superadmin? || record.user == @user
   end
 
 
