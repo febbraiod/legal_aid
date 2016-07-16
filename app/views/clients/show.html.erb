@@ -9,11 +9,11 @@
   <p><%= @client.full_name %></p>
   <p><%= @client.phones %></p>
   <p><%= "Company: " + @client.company_name %></p>
-  <p><%= "Email: " + @client.email%></p>
-  <p><%= "Address: " + @client.address%></p>
-  <p><%= "City: " + @client.city%></p>
-  <p><%= "State: " + @client.state%></p>
-  <p><%= "Zip: " + @client.zip%></p>
+  <p><%= "Email: " + @client.email unless @client.email.blank?%></p>
+  <p><%= "Address: " + @client.address unless @client.address.blank?%></p>
+  <p><%= "City: " + @client.city unless @client.city.blank?%></p>
+  <p><%= "State: " + @client.state unless @client.state.blank?%></p>
+  <p><%= "Zip: " + @client.zip unless @client.zip.blank?%></p>
 
 
 
