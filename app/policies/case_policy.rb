@@ -5,11 +5,11 @@ class CasePolicy < ApplicationPolicy
   end
 
   def edit?
-    @user.admin? || record.workers.include?(@user)
+    @user.superadmin? || @user.admin? || record.workers.include?(@user)
   end
 
   def update?
-    @user.admin? || record.workers.include?(@user)
+    @user.superadmin? || @user.admin? || record.workers.include?(@user)
   end
 
   def destroy?

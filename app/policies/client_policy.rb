@@ -5,11 +5,11 @@ class ClientPolicy < ApplicationPolicy
   end
 
   def edit?
-    @user.admin?
+    @user.superadmin? || @user.admin?
   end
 
   def update?
-    @user.admin?
+    @user.superadmin? || @user.admin?
   end
 
   def destroy?

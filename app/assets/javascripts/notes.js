@@ -50,6 +50,7 @@ function hiJackForm(){
       var edit_button = '<p><a href="/notes/' + note.id + '/edit">edit your note</a></p>';
       $('#case_notes').prepend(edit_button);
       $('#case_notes').prepend(noteString);
+      document.getElementById("note_box").value = '';
     });
   });
 }

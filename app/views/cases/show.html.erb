@@ -9,7 +9,7 @@
 
   <h1>Case Info:</h1>
   <br>
-  <div id='attrs'> <!-- FIX THIS!!!! -->
+  <div id='attrs' style='max-width: 250px; line-height: 1.35em; padding-left: 5px; padding-right: 5px'>
 
     <p>Client: <%=link_to (Client.find(@case.send("client_id")).full_name), client_cases_path(@case.client)%></p>
     <p>Index No.: <%=@case.index_num%></p>
@@ -59,10 +59,10 @@
 
 
   <%=form_for @newnote do |f|%>
-  <h5>Add Note:</h5>
+    <h5>Add Note:</h5>
 
     <%= f.label :content%>
-    <%= f.text_area :content%><br>
+    <%= f.text_area :content, id: 'note_box'%><br>
     <%= f.hidden_field :user_id %><br>
     <%= f.hidden_field :case_id %>
     <%= f.submit%>

@@ -1,7 +1,7 @@
 class UserPolicy < ApplicationPolicy
 
   def show?
-    @user == @record || @user.admin?
+    @user == @record || @user.admin? || @user.superadmin?
   end
 
   def edit?
