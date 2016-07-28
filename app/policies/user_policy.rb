@@ -5,7 +5,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    @user.superadmin?
+    @user.superadmin? || user.admin?
   end
 
   def update?
