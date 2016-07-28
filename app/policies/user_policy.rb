@@ -5,11 +5,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    @user.superadmin? || user.admin?
+    @user.superadmin?
   end
 
   def update?
-    user.superadmin? || user.admin?
+    user.superadmin?
   end
 
   def destroy?
