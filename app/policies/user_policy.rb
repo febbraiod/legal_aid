@@ -9,7 +9,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    user.superadmin?
+    user.superadmin? || user.admin?
   end
 
   def destroy?
